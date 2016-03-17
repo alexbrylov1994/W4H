@@ -40,6 +40,7 @@ The application should now be running in your browser at [http://localhost:3000]
 [react-bootstrap][] 
 [stormpath-sdk-react][] 
 [express-stormpath][] 
+[React-Router]
 
 [Node.js]: https://nodejs.org
 [react]: https://facebook.github.io/react/
@@ -47,3 +48,4 @@ The application should now be running in your browser at [http://localhost:3000]
 [react-bootstrap]: https://react-bootstrap.github.io/
 [stormpath-sdk-react]: https://github.com/stormpath/stormpath-sdk-react
 [express-stormpath]: https://github.com/stormpath/express-stormpath
+[React-Router]: https://github.com/reactjs/react-router
