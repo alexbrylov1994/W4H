@@ -33,13 +33,17 @@ Listening at http://localhost:3000
 
 The application should now be running in your browser at [http://localhost:3000](http://localhost:3000).
 
-
-## 3. Resources to look at
+## 4. Resources to look at
+[Node.js][] 
+[react][] 
+[facebook-flux][] 
+[react-bootstrap][] 
+[stormpath-sdk-react][] 
+[express-stormpath][] 
 
 [Node.js]: https://nodejs.org
 [react]: https://facebook.github.io/react/
 [facebook-flux]: https://facebook.github.io/flux/
 [react-bootstrap]: https://react-bootstrap.github.io/
-
 [stormpath-sdk-react]: https://github.com/stormpath/stormpath-sdk-react
 [express-stormpath]: https://github.com/stormpath/express-stormpath
