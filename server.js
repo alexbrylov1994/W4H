@@ -30,8 +30,7 @@ app.get('*', function (req, res) {
 });
 
 app.on('stormpath.ready', function () {
-  console.log('Stormpath Ready');
-    
+  console.log('Server is Ready');
   app.listen(3000, 'localhost', function (err) {
     if (err) {
       console.log(err);
