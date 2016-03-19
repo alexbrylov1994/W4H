@@ -26,11 +26,20 @@ export default class Header extends React.Component {
               </li>
             </NotAuthenticated>
 
+
             <NavDropdown eventKey={3} title="Services" id="basic-nav-dropdown">
               <MenuItem eventKey={3.1}>Rent a car</MenuItem>
               <MenuItem eventKey={3.2}>Rent out a car</MenuItem>
             </NavDropdown>
+
+            <Navbar.Form>
+              <Input type="text" placeholder="Search"/>
+              {' '}
+              <Button type="submit">Submit</Button>
+            </Navbar.Form>
+
           </Nav>
+
 
           <Nav pullRight>
           <Authenticated>
