@@ -41,9 +41,9 @@ export default class Header extends React.Component {
 
             <Authenticated>
                 <NavDropdown eventKey={4} title="Hi user" id="nav-dropdown">
-                  <MenuItem eventKey="4.1">Profile</MenuItem>
-                  <MenuItem eventKey="4.2">Bookmarks</MenuItem>
-                  <MenuItem eventKey="4.3">MyGarage</MenuItem>
+                  <MenuItem eventKey="4.1" href="/profile">Profile</MenuItem>
+                  <MenuItem eventKey="4.2" href="/bookmarks">Bookmarks</MenuItem>
+                  <MenuItem eventKey="4.3" href="/garage">MyGarage</MenuItem>
                   <MenuItem eventKey="4.4" >Log Out</MenuItem>
                 </NavDropdown>
             </Authenticated>
