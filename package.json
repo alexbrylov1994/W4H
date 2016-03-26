@@ -1,9 +1,9 @@
 {
   "version": "1.0.0",
-  "name": "stormpath-express-react-example",
-  "description": "A sample app demonstrating how to integrate Stormpath with React and Express.",
-  "homepage": "https://github.com/stormpath/stormpath-express-react-example",
-  "author": "Stormpath, Inc.",
+  "name": "W4Hire",
+  "description": "",
+  "homepage": "",
+  "author": "",
   "license": "Apache-2.0",
   "dependencies": {
     "babel-core": "^6.3.26",
@@ -26,6 +26,7 @@
     "react-dom": "^0.14.5",
     "react-router": "^1.0.3",
     "react-stormpath": "^1.0.0",
+    "searchkit": "^0.8.3",
     "webpack": "^1.12.9"
   },
   "devDependencies": {

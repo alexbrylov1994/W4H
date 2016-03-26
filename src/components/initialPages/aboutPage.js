@@ -14,21 +14,21 @@ export default class aboutPage extends React.Component {
         <hr />
         <Carousel>
           <CarouselItem>
-            <img width={400} height={500} alt="400x500" src=".assets/syvzV.png"/>
+            <img width={400} height={500} alt="400x500" src="./assets/money.png"/>
             <div className="carousel-caption">
               <h3>Rent Car</h3>
               <p>The ultimate place for renting cars and have a comfortable, affordable ride</p>
             </div>
           </CarouselItem>
           <CarouselItem>
-            <img width={400} height={500} alt="400x500" src=".assets/noney.jpg"/>
+            <img width={400} height={500} alt="400x500" src="./assets/money.jpg"/>
             <div className="carousel-caption">
               <h3>Make Money</h3>
               <p>This application allows you to make money with a minimum ammount of effort</p>
             </div>
           </CarouselItem>
           <CarouselItem>
-            <img width={400} height={500} alt="400x500" src=".assets/safety.jpg"/>
+            <img width={400} height={500} alt="400x500" src="./assets/money.jpg"/>
             <div className="carousel-caption">
               <h3>Safety</h3>
               <p>We got you covered. WE know, accidents happen, and we are there to make

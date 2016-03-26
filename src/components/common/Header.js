@@ -14,18 +14,28 @@ export default class Header extends React.Component {
 
           <Navbar.Toggle />
         </Navbar.Header>
+
         <Navbar.Collapse>
           <Nav pullRight>
 
-            <NavItem eventKey={1}
-                href="#">Home
-            </NavItem>
+          <Authenticated>
+            <li>
+              <a href="#">Home</a>
+            </li>
+          </Authenticated>
+
+          <NotAuthenticated>
+              <li>
+              <a href="#">Home</a>
+              </li>
+          </NotAuthenticated>
 
             <Authenticated>
               <li>
                 <Link to="/about">About us</Link>
               </li>
             </Authenticated>
+
             <NotAuthenticated>
                 <li>
                   <Link to="/about">About us</Link>
@@ -40,13 +50,12 @@ export default class Header extends React.Component {
 
             <Authenticated>
                 <NavDropdown eventKey={4} title="Hi user" id="nav-dropdown">
-                  <MenuItem eventKey="4.1">Profile</MenuItem>
-                  <MenuItem eventKey="4.2">Bookmarks</MenuItem>
-                  <MenuItem eventKey="4.3">MyGarage</MenuItem>
-                  <MenuItem eventKey="4.4" ><LogoutLink /></MenuItem>
+                  <MenuItem eventKey="4.1"> <Link to="/profile">My Profile</Link></MenuItem>
+                  <MenuItem eventKey="4.2"><Link to="/bookmarks">My Bookmarks</Link></MenuItem>
+                  <MenuItem eventKey="4.3"><Link to="/garage">My Garage</Link></MenuItem>
+                  <MenuItem eventKey="4.4"> <LogoutLink /> </MenuItem>
                 </NavDropdown>
             </Authenticated>
-            
           </Nav>
         </Navbar.Collapse>
       </Navbar>
