@@ -26,7 +26,6 @@ export default class Header extends React.Component {
                 <Link to="/about">About</Link>
               </li>
             </Authenticated>
-
             <NotAuthenticated>
                 <li>
                   <Link to="/about">About</Link>
@@ -44,7 +43,7 @@ export default class Header extends React.Component {
                   <MenuItem eventKey="4.1">Profile</MenuItem>
                   <MenuItem eventKey="4.2">Bookmarks</MenuItem>
                   <MenuItem eventKey="4.3">MyGarage</MenuItem>
-                  <MenuItem eventKey="4.4" >Log Out</MenuItem>
+                  <MenuItem eventKey="4.4" ><LogoutLink /></MenuItem>
                 </NavDropdown>
             </Authenticated>
 
