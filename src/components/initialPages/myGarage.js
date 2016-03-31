@@ -12,7 +12,7 @@ export default class myGarage extends React.Component {
         <hr />
           <div className="jumbotron">
           <p>
-              <br />This is the my garage page!
+              <br/>This is the my garage page!
           </p>
 
           </div>
