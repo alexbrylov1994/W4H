@@ -14,7 +14,6 @@ export default class myGarage extends React.Component {
           <p>
               <br />This is the my garage page!
           </p>
-
           </div>
       </div>
     );

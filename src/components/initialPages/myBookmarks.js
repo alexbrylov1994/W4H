@@ -17,8 +17,6 @@ export default class myBookmarks extends React.Component {
           </p>
           </div>
       </div>
-
-
     );
   }
 }

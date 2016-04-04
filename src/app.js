@@ -5,6 +5,7 @@ import createBrowserHistory from 'history/lib/createBrowserHistory';
 import ReactStormpath, { Router, HomeRoute, LoginRoute, AuthenticatedRoute } from 'react-stormpath';
 import { LoginPage, RegisterPage, ResetPasswordPage, VerifyEmailPage, ProfilePage } from './components/authentication';
 import { MasterPage, IndexPage, aboutPage, myBookmarks,myGarage } from './components/initialPages';
+
 require('./css/style.scss');
 
 ReactStormpath.init();
