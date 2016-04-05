@@ -5,12 +5,9 @@ import { LoginLink } from 'react-stormpath';
 import {DropdownButton, MenuItem, Image, Grid, Thumbnail, Row, Col, Button} from 'react-bootstrap';
 import BurgerMenu from 'react-burger-menu';
 
-
 import SearchBar from './../common/SearchBar';
-import CarsList from './../common/CarsList';
+import SearchResult from './../common/SearchResult';
 
-import HomePageStore from './../../store/HomePageStore';
-import HomePageActions from './../../actions/HomePageActions';
 
 var items = [
   {name: "car1", price: "1$", categories: "Car"},
@@ -36,31 +33,13 @@ var items = [
 ];
 
 export default class IndexPage extends React.Component {
-
-  constructor(props)
-  {
-    super(props);
-    this.onFilteredCarsChange = this.onFilteredCarsChange.bind(this);
-  }
-
-  componentDidMount() {
-    console.log('componentDidMount is called');
-  }
-
-  componentWillUnmount() {
-  }
-
-  onFilteredCarsChange(state)
-  {
-
-  }
-
   render() {
     return (
       <div className="home-page-wrapper">
           <div id="page-content-wrapper">
               <div className="container-fluid">
-                <SearchBar items={items}></SearchBar>
+                <SearchBar className="jumbotron" items={items}></SearchBar>
+                <SearchResult items={items}></SearchResult>
               </div>
           </div>
         </div>

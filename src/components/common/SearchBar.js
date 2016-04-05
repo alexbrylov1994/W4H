@@ -4,30 +4,16 @@ import Car from './Car';
 import CarsList from './CarsList';
 import {DropdownButton, MenuItem, Image, Grid, Thumbnail, Row, Col, Button} from 'react-bootstrap';
 
-
 import HomePageStore from './../../store/HomePageStore';
 import HomePageActions from './../../actions/HomePageActions';
 
 const filters = ['make', 'model', 'price'];
 
 export default class SearchBar extends React.Component {
-
-  constructor(props)
-  {
-    super(props);
-    this.state =  {
-      searchString: "",
-      categories: "",
-      make: "",
-      model: "",
-      price: ""
-    }
-  }
-
   onChange(event)
   {
     console.log('Letter searched is ' + event.target.value)
-    this.setState({searchString: event.target.value})
+    HomePageActions.updateQuery(event.target.value);
   }
 
   onSelect(eventKey, href)
@@ -36,31 +22,14 @@ export default class SearchBar extends React.Component {
     //this.setState({searchString: event.target.value})
   }
 
-  onPriceChange(event)
-  {
-
-  }
-
   render() {
-
-    let cars = this.props.items,
-      searchString = this.state.searchString.trim().toLowerCase();
-
-    if(searchString.length > 0)
-    {
-      cars = cars.filter(function(c){
-        return c.name.toLowerCase().match(searchString);
-      });
-    }
-
-
     return <div>
 
       <Grid className="container-fluid">
         <Row>
           <Col xs={12} sm={12} md={6}>
           <div className="input-group">
-            <input type="text" className="form-control" value={this.state.searchString}
+            <input type="text" className="form-control"
               onChange={this.onChange.bind(this)} placeholder="search cars"
             />
             <span className="input-group-btn">
@@ -69,7 +38,7 @@ export default class SearchBar extends React.Component {
           </div>
          </Col>
 
-         <Col xs={12} sm={12} md={6}>
+         <Col xs={10} sm={12} md={6}>
                 <DropdownButton title="Category" id="bg-nested-dropdwon">
                     <MenuItem eventKey={1.1} href="#" onSelect={this.onSelect.bind(this)}>Cars</MenuItem>
                     <MenuItem eventKey={1.2} href="#" onSelect={this.onSelect.bind(this)}>Trucks</MenuItem>
@@ -97,19 +66,6 @@ export default class SearchBar extends React.Component {
                 <MenuItem eventKey={4.5} href="#" onSelect={this.onSelect.bind(this)}>(40 and above)$/hr</MenuItem>
 
               </DropdownButton>
-            </Col>
-         </Row>
-
-         <Row>
-
-
-         </Row>
-
-         <hr className="divider"/>
-
-         <Row>
-            <Col xs={12} sm={12} md={12}>
-              <CarsList cars={cars}></CarsList>
             </Col>
          </Row>
         </Grid>
