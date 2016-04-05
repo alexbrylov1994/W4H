@@ -1,6 +1,7 @@
 import { Link } from 'react-router';
 import React, { PropTypes } from 'react';
 import {Image, Grid, Thumbnail, Row, Col, Button} from 'react-bootstrap';
+import { LoginLink, LogoutLink, NotAuthenticated, Authenticated } from 'react-stormpath';
 
 export default class Car extends React.Component {
 
@@ -11,59 +12,95 @@ export default class Car extends React.Component {
               <Col xs={12} sm={6} md={3}>
                <Thumbnail src="http://www.extremetech.com/wp-content/uploads/2015/04/inter-IP.jpg"
                 alt="242x200">
-                 <h3>Car Details</h3>
                  <p>
                     <h4>{this.props.carName}</h4>
-                    <h4>16$/hr</h4>
+                    <h4>{this.props.price}$/hr</h4>
                  </p>
-                 <p>
-                   <Button bsStyle="primary">Button</Button>&nbsp;
-                   <Button bsStyle="default">Button</Button>
-                 </p>
+
+                 <Authenticated>
+                   <p>
+                     <Button bsStyle="primary">View Details</Button>&nbsp;
+                     <Button bsStyle="default">Bookmarks</Button>
+                   </p>
+                </Authenticated>
+
+                <NotAuthenticated>
+                  <p>
+                    <Button bsStyle="primary">View Details</Button>&nbsp;
+                  </p>
+               </NotAuthenticated>
+
                </Thumbnail>
              </Col>
 
              <Col xs={12} sm={6} md={3}>
               <Thumbnail src="http://www.extremetech.com/wp-content/uploads/2015/04/inter-IP.jpg"
                alt="242x200">
-                <h3>Car Details</h3>
+               <p>
+                  <h4>{this.props.carName}</h4>
+                  <h4>{this.props.price}$/hr</h4>
+               </p>
+
+               <Authenticated>
+                 <p>
+                   <Button bsStyle="primary">View Details</Button>&nbsp;
+                   <Button bsStyle="default">Bookmarks</Button>
+                 </p>
+              </Authenticated>
+
+              <NotAuthenticated>
                 <p>
-                   <h4>{this.props.carName}</h4>
-                   <h4>16$/hr</h4>
+                  <Button bsStyle="primary">View Details</Button>&nbsp;
                 </p>
-                <p>
-                  <Button bsStyle="primary">Button</Button>&nbsp;
-                  <Button bsStyle="default">Button</Button>
-                </p>
+             </NotAuthenticated>
+
               </Thumbnail>
             </Col>
 
             <Col xs={12} sm={6} md={3}>
              <Thumbnail src="http://www.extremetech.com/wp-content/uploads/2015/04/inter-IP.jpg"
               alt="242x200">
-               <h3>Car Details</h3>
+              <p>
+                 <h4>{this.props.carName}</h4>
+                 <h4>{this.props.price}$/hr</h4>
+              </p>
+
+              <Authenticated>
+                <p>
+                  <Button bsStyle="primary">View Details</Button>&nbsp;
+                  <Button bsStyle="default">Bookmarks</Button>
+                </p>
+             </Authenticated>
+
+             <NotAuthenticated>
                <p>
-                  <h4>{this.props.carName}</h4>
-                  <h4>16$/hr</h4>
+                 <Button bsStyle="primary">View Details</Button>&nbsp;
                </p>
-               <p>
-                 <Button bsStyle="primary">Button</Button>&nbsp;
-                 <Button bsStyle="default">Button</Button>
-               </p>
+            </NotAuthenticated>
+
              </Thumbnail>
            </Col>
            <Col xs={12} sm={6} md={3}>
             <Thumbnail src="http://www.extremetech.com/wp-content/uploads/2015/04/inter-IP.jpg"
              alt="242x200">
-              <h3>Car Details</h3>
+             <p>
+                <h4>{this.props.carName}</h4>
+                <h4>{this.props.price}$/hr</h4>
+             </p>
+
+             <Authenticated>
+               <p>
+                 <Button bsStyle="primary">View Details</Button>&nbsp;
+                 <Button bsStyle="default">Bookmarks</Button>
+               </p>
+            </Authenticated>
+
+            <NotAuthenticated>
               <p>
-                 <h4>{this.props.carName}</h4>
-                 <h4>16$/hr</h4>
+                <Button bsStyle="primary">View Details</Button>&nbsp;
               </p>
-              <p>
-                <Button bsStyle="primary">Button</Button>&nbsp;
-                <Button bsStyle="default">Button</Button>
-              </p>
+           </NotAuthenticated>
+
             </Thumbnail>
           </Col>
           </Row>

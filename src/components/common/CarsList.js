@@ -21,7 +21,7 @@ export default class CarsList extends React.Component {
         this.props.cars.map(function(c){
           return(
             <div key={c.name}>
-              <Car carName={c.name}/>
+              <Car carName={c.name} price={c.price}/>
             </div>
           );
         })

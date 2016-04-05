@@ -7,6 +7,8 @@ import { LoginPage, RegisterPage, ResetPasswordPage, VerifyEmailPage, ProfilePag
 import { MasterPage, IndexPage, aboutPage, myBookmarks,myGarage } from './components/initialPages';
 
 require('./css/style.scss');
+require('./css/homePageStyleSheet.scss');
+
 
 ReactStormpath.init();
 
