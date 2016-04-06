@@ -23,14 +23,19 @@ export default class SearchBar extends React.Component {
   }
 
   render() {
-    return <div>
+    var divStyle = {
+      paddingLeft: '15px',
+      paddingBottom: '30px'
+    };
 
-      <Grid className="container-fluid">
+    return <div style={divStyle}>
+
+      <Grid >
         <Row>
           <Col xs={12} sm={12} md={6}>
           <div className="input-group">
             <input type="text" className="form-control"
-              onChange={this.onChange.bind(this)} placeholder="search cars"
+              onChange={this.onChange.bind(this)} placeholder="search Cars"
             />
             <span className="input-group-btn">
               <button className="btn btn-default" type="button">Search</button>
@@ -39,18 +44,18 @@ export default class SearchBar extends React.Component {
          </Col>
 
          <Col xs={10} sm={12} md={6}>
-                <DropdownButton title="Category" id="bg-nested-dropdwon">
-                    <MenuItem eventKey={1.1} href="#" onSelect={this.onSelect.bind(this)}>Cars</MenuItem>
-                    <MenuItem eventKey={1.2} href="#" onSelect={this.onSelect.bind(this)}>Trucks</MenuItem>
-                    <MenuItem eventKey={1.3} href="#" onSelect={this.onSelect.bind(this)}>SUVS</MenuItem>
-                    <MenuItem eventKey={1.4} href="#" onSelect={this.onSelect.bind(this)}>Utility</MenuItem>
-                </DropdownButton>
+              <DropdownButton title="Category" id="bg-nested-dropdwon">
+                  <MenuItem eventKey={1.1} href="#" onSelect={this.onSelect.bind(this)}>Cars</MenuItem>
+                  <MenuItem eventKey={1.2} href="#" onSelect={this.onSelect.bind(this)}>Trucks</MenuItem>
+                  <MenuItem eventKey={1.3} href="#" onSelect={this.onSelect.bind(this)}>SUVS</MenuItem>
+                  <MenuItem eventKey={1.4} href="#" onSelect={this.onSelect.bind(this)}>Utility</MenuItem>
+              </DropdownButton>
 
-               <DropdownButton title="Make" id="bg-nested-dropdwon">
-                 <MenuItem eventKey={2.1} href="#" onSelect={this.onSelect.bind(this)}>Acura</MenuItem>
-                 <MenuItem eventKey={2.2} href="#" onSelect={this.onSelect.bind(this)}>Mclaren</MenuItem>
-                 <MenuItem eventKey={2.3} href="#" onSelect={this.onSelect.bind(this)}>Lambo</MenuItem>
-               </DropdownButton>
+             <DropdownButton title="Make" id="bg-nested-dropdwon">
+               <MenuItem eventKey={2.1} href="#" onSelect={this.onSelect.bind(this)}>Acura</MenuItem>
+               <MenuItem eventKey={2.2} href="#" onSelect={this.onSelect.bind(this)}>Mclaren</MenuItem>
+               <MenuItem eventKey={2.3} href="#" onSelect={this.onSelect.bind(this)}>Lambo</MenuItem>
+             </DropdownButton>
 
               <DropdownButton title="Model" id="bg-nested-dropdwon">
                 <MenuItem eventKey={3.1} href="#" onSelect={this.onSelect.bind(this)}>Model1</MenuItem>

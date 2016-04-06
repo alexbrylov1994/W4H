@@ -4,6 +4,7 @@ import DocumentTitle from 'react-document-title';
 import { LoginLink } from 'react-stormpath';
 import {DropdownButton, MenuItem, Image, Grid, Thumbnail, Row, Col, Button} from 'react-bootstrap';
 import BurgerMenu from 'react-burger-menu';
+import MediaQuery from 'react-responsive';
 
 import SearchBar from './../common/SearchBar';
 import SearchResult from './../common/SearchResult';
@@ -32,14 +33,34 @@ var items = [
   {name: "suv6", price: "18$", categories: "SUV"},
 ];
 
+var styles = {
+  searchBarPadding: {
+    paddingRight: '10px',
+    paddingLeft: '10px'
+  }
+};
+
+
+
 export default class IndexPage extends React.Component {
   render() {
     return (
       <div className="home-page-wrapper">
           <div id="page-content-wrapper">
               <div className="container-fluid">
-                <SearchBar className="jumbotron" items={items}></SearchBar>
-                <SearchResult items={items}></SearchResult>
+                <Grid >
+                  <Row>
+                    <Col xs={12} sm={12} md={12}>
+                      <SearchBar id="searchBarPadding" items={items}></SearchBar>
+                    </Col>
+
+                      <hr/>
+
+                    <Col xs={12} sm={12} md={12}>
+                      <SearchResult items={items}></SearchResult>
+                    </Col>
+                  </Row>
+                </Grid>
               </div>
           </div>
         </div>

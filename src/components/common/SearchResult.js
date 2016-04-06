@@ -7,7 +7,6 @@ import {DropdownButton, MenuItem, Image, Grid, Thumbnail, Row, Col, Button} from
 import HomePageStore from './../../store/HomePageStore';
 import HomePageActions from './../../actions/HomePageActions';
 
-const filters = ['make', 'model', 'price'];
 
 export default class SearchResult extends React.Component {
 
@@ -68,11 +67,11 @@ export default class SearchResult extends React.Component {
       });
     }
 
-    return <div className="jumbotron">
-      <Grid className="container-fluid">
+    return <div>
+      <Grid>
          <Row>
             <Col xs={12} sm={12} md={12}>
-              <CarsList cars={cars}></CarsList>
+              <CarsList cars={cars} ></CarsList>
             </Col>
          </Row>
      </Grid>

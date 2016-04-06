@@ -7,7 +7,7 @@ export default class Car extends React.Component {
 
   render() {
     return (
-        <Grid className="container-fluid">
+        <Grid>
           <Row>
               <Col xs={12} sm={6} md={3}>
                <Thumbnail src="http://www.extremetech.com/wp-content/uploads/2015/04/inter-IP.jpg"
