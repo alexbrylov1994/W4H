@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { IndexRoute, Route } from 'react-router';
 import createBrowserHistory from 'history/lib/createBrowserHistory';
 import ReactStormpath, { Router, HomeRoute, LoginRoute, AuthenticatedRoute } from 'react-stormpath';
-import { LoginPage, RegisterPage, ResetPasswordPage, VerifyEmailPage, ProfilePage } from './components/authentication';
+import { LoginPage, RegisterPage, ResetPasswordPage, VerifyEmailPage, ProfilePage, ClientProfile } from './components/authentication';
 import { MasterPage, IndexPage, aboutPage, myBookmarks,myGarage } from './components/initialPages';
 
 ReactStormpath.init();
@@ -20,10 +20,12 @@ ReactDOM.render(
 
       <Route path='/bookmarks' component={myBookmarks} />
       <Route path='/garage' component={myGarage} />
+      <Route path='/clientprofile' component={ClientProfile} />
+
+
 
       <AuthenticatedRoute>
         <HomeRoute path='/profile' component={ProfilePage} />
-
       </AuthenticatedRoute>
     </HomeRoute>
   </Router>,
