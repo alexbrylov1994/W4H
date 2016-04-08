@@ -9,7 +9,6 @@ import MediaQuery from 'react-responsive';
 import SearchBar from './../common/SearchBar';
 import SearchResult from './../common/SearchResult';
 
-
 var items = [
   {name: "car1", price: "1$", categories: "Car"},
   {name: "car2", price: "2$", categories: "Car"},
@@ -31,13 +30,18 @@ var items = [
   {name: "suv4", price: "16$", categories: "SUV"},
   {name: "suv5", price: "17$", categories: "SUV"},
   {name: "suv6", price: "18$", categories: "SUV"},
+
+  {name: "utility1", price: "19$", categories: "Utility"},
+  {name: "utility2", price: "20$", categories: "Utility"},
+  {name: "utility3", price: "21$", categories: "Utility"},
+  {name: "utility4", price: "22$", categories: "Utility"},
+  {name: "utility5", price: "23$", categories: "Utility"},
+  {name: "utility6", price: "24$", categories: "Utility"},
 ];
 
-var styles = {
-  searchBarPadding: {
+var searchBarPadding = {
     paddingRight: '10px',
     paddingLeft: '10px'
-  }
 };
 
 
@@ -51,10 +55,10 @@ export default class IndexPage extends React.Component {
                 <Grid >
                   <Row>
                     <Col xs={12} sm={12} md={12}>
-                      <SearchBar id="searchBarPadding" items={items}></SearchBar>
+                      <SearchBar items={items}></SearchBar>
                     </Col>
 
-                      <hr/>
+                    <hr/>
 
                     <Col xs={12} sm={12} md={12}>
                       <SearchResult items={items}></SearchResult>

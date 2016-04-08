@@ -15,7 +15,7 @@ export default class SearchResult extends React.Component {
     super(props);
     this.state =  {
       searchString: "",
-      categories: "",
+      category: "",
       make: "",
       model: "",
       price: ""
@@ -35,19 +35,7 @@ export default class SearchResult extends React.Component {
 
   onQueryChange(query){
     console.log('onQueryChange is called with query ' + JSON.stringify(query))
-    this.setState({searchString: query.query})
-  }
-
-  onChange(event)
-  {
-    console.log('Letter searched is ' + event.target.value)
-    HomePageActions.updateQuery(event.target.value);
-  }
-
-  onSelect(eventKey, href)
-  {
-    console.log('On Select searched is ' + eventKey + " href = " + href);
-    //this.setState({searchString: event.target.value})
+    this.setState(query.query)
   }
 
   onPriceChange(event)
@@ -58,19 +46,29 @@ export default class SearchResult extends React.Component {
   render() {
 
     let cars = this.props.items,
-      searchString = this.state.searchString.trim().toLowerCase();
+      searchString = this.state.searchString.trim().toLowerCase(),
+      searchPrice = this.state.price.trim().toLowerCase(),
+      searchMake = this.state.make.trim().toLowerCase(),
+      searchModel = this.state.model.trim().toLowerCase(),
+      searchCategory = this.state.category.trim().toLowerCase();
 
     if(searchString.length > 0)
     {
       cars = cars.filter(function(c){
-        return c.name.toLowerCase().match(searchString);
+        if(searchCategory.length > 0){
+          if(c.categories.toLowerCase() == searchCategory.toLowerCase()){
+            return c.name.toLowerCase().match(searchString);
+          }
+        } else{
+          return c.name.toLowerCase().match(searchString);
+        }
       });
     }
 
     return <div>
       <Grid>
          <Row>
-            <Col xs={12} sm={12} md={12}>
+            <Col className="jumbotron" xs={12} sm={12} md={12}>
               <CarsList cars={cars} ></CarsList>
             </Col>
          </Row>
