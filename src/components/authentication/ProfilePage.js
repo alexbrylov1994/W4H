@@ -7,10 +7,10 @@ export default class ProfilePage extends React.Component {
 
   render() {
 
-    function hello(id)
+    function hello()
     {
 
-      document.getElementById(id).remove();
+      document.getElementById("t2").remove();
 
     }
 
@@ -41,7 +41,7 @@ export default class ProfilePage extends React.Component {
                 <p> <strong>Time Slot:</strong> 10 Am - 5 PM March 13 2016;  11 Am - 6 PM May 12 </p>
 
                 <p>
-                  <Button id="b1" bsStyle="danger" onClick={hello.bind("t2")}>Cancel</Button>
+                  <Button id="b1" bsStyle="danger" onClick={hello}>Cancel</Button>
                 </p>
               </Thumbnail>
 
