@@ -6,6 +6,9 @@ import ReactStormpath, { Router, HomeRoute, LoginRoute, AuthenticatedRoute } fro
 import { LoginPage, RegisterPage, ResetPasswordPage, VerifyEmailPage, ProfilePage } from './components/authentication';
 import { MasterPage, IndexPage, aboutPage, myBookmarks,myGarage } from './components/initialPages';
 
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
+
 require('./css/style.scss');
 require('./css/homePageStyleSheet.scss');
 

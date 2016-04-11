@@ -2,7 +2,7 @@ import { Link } from 'react-router';
 import React, { PropTypes } from 'react';
 import Car from './Car';
 import CarsList from './CarsList';
-import {DropdownButton, MenuItem, Image, Grid, Thumbnail, Row, Col, Button} from 'react-bootstrap';
+import {DropdownButton, MenuItem, Image, Grid, Thumbnail, Row, Col, Button, Pagination} from 'react-bootstrap';
 
 import HomePageStore from './../../store/HomePageStore';
 import HomePageActions from './../../actions/HomePageActions';
@@ -18,10 +18,12 @@ export default class SearchResult extends React.Component {
       category: "",
       make: "",
       model: "",
-      price: ""
+      price: "",
+      activePage: 1
     };
 
     this.onQueryChange = this.onQueryChange.bind(this);
+    this.onPageSelect = this.onPageSelect.bind(this);
   }
 
   componentDidMount() {
@@ -41,6 +43,28 @@ export default class SearchResult extends React.Component {
   onPriceChange(event)
   {
 
+  }
+
+  onPageSelect(event, selectedEvent)
+  {
+    console.log('activePage == ' + selectedEvent.eventKey);
+    this.setState({
+     activePage: selectedEvent.eventKey
+    });
+  }
+
+  getNextPage(pageNumber, cars)
+  {
+    if(cars.length >= (pageNumber * 20)){
+      if((cars.length - (pageNumber * 20)) >=20){
+        //console.log(JSON.stringify(cars.slice(pageNumber * 20, pageNumber * 20 + 20), null, "\t"))
+        return cars.slice(pageNumber * 20, pageNumber * 20 + 20)
+      } else{
+        //console.log(JSON.stringify(cars.slice(pageNumber * 20, cars.length), null, "\t"))
+        return cars.slice(pageNumber * 20, cars.length)
+      }
+    }
+    return {}
   }
 
   render() {
@@ -65,14 +89,34 @@ export default class SearchResult extends React.Component {
       });
     }
 
-    return <div>
-      <Grid>
-         <Row>
-            <Col className="jumbotron" xs={12} sm={12} md={12}>
-              <CarsList cars={cars} ></CarsList>
-            </Col>
-         </Row>
-     </Grid>
-    </div>
+    let numberOfPages = cars.length/20
+    console.log('length of cars == ' + numberOfPages)
+
+    if(numberOfPages > 1)
+    {
+      this.getNextPage(1, cars)
+    }
+
+    let thisPageCars = this.getNextPage(this.state.activePage -1 , cars);
+    console.log("This page cars " + JSON.stringify(thisPageCars, null, "\t"))
+
+
+    return(
+      <div className="jumbotron">
+        <CarsList cars={thisPageCars} ></CarsList>
+        <Pagination
+          prev
+          next
+          first
+          last
+          ellipsis
+          boundaryLinks
+          items={numberOfPages}
+          maxButtons={5}
+          activePage={this.state.activePage}
+          onSelect={this.onPageSelect}
+        />
+      </div>
+    );
   }
 }
