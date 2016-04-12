@@ -24,10 +24,6 @@ export default class Header extends React.Component {
               <Link to="/about">About</Link>
             </li>
 
-            <li>
-              <Link to="/carDetails">Car Details</Link>
-            </li>
-
             <NotAuthenticated>
               <li>
                 <Link to="/login">Log In</Link>
