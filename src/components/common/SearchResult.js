@@ -15,6 +15,14 @@ var divStyle = {
   paddingBottom: '30px',
   paddingTop: '15px'
 };
+var paginationStyle = {
+  paddingLeft: '15px',
+  paddingBottom: '30px',
+  paddingTop: '15px',
+  display:'table',
+  margin:'0 auto'
+};
+
 
 export default class SearchResult extends React.Component {
 
@@ -113,7 +121,8 @@ export default class SearchResult extends React.Component {
     return(
       <div>
         <CarsList cars={thisPageCars} ></CarsList>
-        <Pagination style={divStyle}
+        <div >
+        <Pagination style={paginationStyle}
           prev
           next
           first
@@ -121,10 +130,13 @@ export default class SearchResult extends React.Component {
           ellipsis
           boundaryLinks
           items={numberOfPages}
-          maxButtons={5}
+          maxButtons={3}
           activePage={this.state.activePage}
           onSelect={this.onPageSelect}
         />
+
+      </div>
+
       </div>
     );
   }

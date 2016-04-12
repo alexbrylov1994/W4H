@@ -136,6 +136,9 @@ export default class SearchBar extends React.Component {
         paddingLeft: '0%',
         width: '100%'
     };
+    var ButtonMargin = {
+      margin: '0 5px'
+    };
     let close = () => this.setState({ showModal: false});
 
     console.log('Rerendering searchBar with searchString == ' + this.state.searchString)
@@ -191,6 +194,8 @@ export default class SearchBar extends React.Component {
         <MediaQuery query='(min-width: 700px)'>
            <Col xs={10} sm={12} md={6}>
                 <DropdownButton
+                  bsStyle="primary"
+                  style={ButtonMargin}
                   title={this.state.category}
                   id="bg-nested-dropdwon">
 
@@ -201,19 +206,19 @@ export default class SearchBar extends React.Component {
                     <MenuItem eventKey={1.5} href="#" onSelect={this.onSelect.bind(this)}>All</MenuItem>
                 </DropdownButton>
 
-               <DropdownButton title="Make" id="bg-nested-dropdwon">
+               <DropdownButton  bsStyle="primary" style={ButtonMargin} title="Make" id="bg-nested-dropdwon">
                  <MenuItem eventKey={2.1} href="#" onSelect={this.onSelect.bind(this)}>Acura</MenuItem>
                  <MenuItem eventKey={2.2} href="#" onSelect={this.onSelect.bind(this)}>Mclaren</MenuItem>
                  <MenuItem eventKey={2.3} href="#" onSelect={this.onSelect.bind(this)}>Lambo</MenuItem>
                </DropdownButton>
 
-                <DropdownButton title="Model" id="bg-nested-dropdwon">
+                <DropdownButton bsStyle="primary" style={ButtonMargin}  title="Model" id="bg-nested-dropdwon">
                   <MenuItem eventKey={3.1} href="#" onSelect={this.onSelect.bind(this)}>Model1</MenuItem>
                   <MenuItem eventKey={3.2} href="#" onSelect={this.onSelect.bind(this)}>Model2</MenuItem>
                   <MenuItem eventKey={3.3} href="#" onSelect={this.onSelect.bind(this)}>Model3</MenuItem>
                 </DropdownButton>
 
-                <DropdownButton title="Price" id="bg-nested-dropdwon">
+                <DropdownButton bsStyle="primary" style={ButtonMargin} title="Price" id="bg-nested-dropdwon">
                   <MenuItem eventKey={4.1} href="#" onSelect={this.onSelect.bind(this)}>(0 - 10)$/hr </MenuItem>
                   <MenuItem eventKey={4.2} href="#" onSelect={this.onSelect.bind(this)}>(10 - 20)$/hr</MenuItem>
                   <MenuItem eventKey={4.3} href="#" onSelect={this.onSelect.bind(this)}>(20 - 30)$/hr</MenuItem>
@@ -226,11 +231,11 @@ export default class SearchBar extends React.Component {
 
            <MediaQuery query='(min-width: 700px)'>
              <Row style={rowStyle}>
-               <Col xs={12} sm={5} md={5} style={divStyle}>
-                 <DateTimeField defaultText="From"/>
+               <Col xs={6} sm={4} md={3} style={divStyle}>
+                 <DateTimeField defaultText="Pick-up Date"/>
                </Col>
-               <Col xs={12} sm={5} md={5} style={divStyle}>
-                 <DateTimeField defaultText="To"/>
+               <Col xs={6} sm={4} md={3} style={divStyle}>
+                 <DateTimeField defaultText="Return Date"/>
                </Col>
              </Row>
            </MediaQuery>
@@ -262,7 +267,7 @@ export default class SearchBar extends React.Component {
                 <br />
 
                 <Row>
-                  <DropDownMenu autoWidth={false} style={DropdownMenuStyle} value={1}>
+                  <DropDownMenu bsStyle="info" autoWidth={false} style={DropdownMenuStyle} value={1}>
                     <MenuItem1 value={1} primaryText="All Categories" />
                     <MenuItem1 value={2} primaryText="Cars" />
                     <MenuItem1 value={3} primaryText="Trucks"/>
@@ -273,7 +278,7 @@ export default class SearchBar extends React.Component {
                 <br />
 
                 <Row>
-                  <DropDownMenu autoWidth={false} style={DropdownMenuStyle} value={1}>
+                  <DropDownMenu bsStyle="info" autoWidth={false} style={DropdownMenuStyle} value={1}>
                     <MenuItem1 value={1} primaryText="All Makes" />
                     <MenuItem1 value={2} primaryText="Acura" />
                     <MenuItem1 value={3} primaryText="Mclaren" />
@@ -283,7 +288,7 @@ export default class SearchBar extends React.Component {
                 <br />
 
                 <Row>
-                  <DropDownMenu autoWidth={false} style={DropdownMenuStyle} value={1}>
+                  <DropDownMenu bsStyle="info" autoWidth={false} style={DropdownMenuStyle} value={1}>
                     <MenuItem1 value={1} primaryText="All Models" />
                     <MenuItem1 value={2} primaryText="Model1" />
                     <MenuItem1 value={3} primaryText="Model2"/>
@@ -293,7 +298,7 @@ export default class SearchBar extends React.Component {
                 </Row>
                 <br />
                 <Row>
-                  <DropDownMenu autoWidth={false} style={DropdownMenuStyle} value={1}>
+                  <DropDownMenu bsStyle="info" autoWidth={false} style={DropdownMenuStyle} value={1}>
                     <MenuItem1 value={1} primaryText="No Price Specified" />
                     <MenuItem1 value={2} primaryText="(0 - 10)$/hr" />
                     <MenuItem1 value={3} primaryText="(10 - 20)$/hr" />
