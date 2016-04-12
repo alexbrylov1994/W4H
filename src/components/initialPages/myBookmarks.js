@@ -12,9 +12,9 @@ export default class myBookmarks extends React.Component {
         <h3 className="text-center">Welcome W4Hire users!</h3>
         <hr />
           <div className="jumbotron">
-          <p>
-              <br />This is the my bookmarks page!
-          </p>
+          `  <p>
+                <br />This is the my bookmarks page!
+            </p>`
           </div>
       </div>
     );

@@ -9,7 +9,7 @@ export default class Header extends React.Component {
       <Navbar inverse>
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="#">W4Hire</a>
+            <Link to="/">W4Hire</Link>
           </Navbar.Brand>
 
           <Navbar.Toggle />
@@ -17,34 +17,20 @@ export default class Header extends React.Component {
 
         <Navbar.Collapse>
           <Nav pullRight>
-
-          <Authenticated>
             <li>
-              <a href="#">Home</a>
+              <Link to="/">Home</Link>
             </li>
-          </Authenticated>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
 
-          <NotAuthenticated>
-              <li>
-              <a href="#">Home</a>
-              </li>
-          </NotAuthenticated>
-
-            <Authenticated>
-              <li>
-                <Link to="/about">About us</Link>
-              </li>
-            </Authenticated>
-
-            <NotAuthenticated>
-                <li>
-                  <Link to="/about">About us</Link>
-                </li>
-            </NotAuthenticated>
+            <li>
+              <Link to="/carDetails">Car Details</Link>
+            </li>
 
             <NotAuthenticated>
               <li>
-                <LoginLink />
+                <Link to="/login">Log In</Link>
               </li>
             </NotAuthenticated>
 

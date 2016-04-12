@@ -1,12 +1,20 @@
 import { Link } from 'react-router';
 import React, { PropTypes } from 'react';
-import Car from './Car';
-import CarsList from './CarsList';
 import {DropdownButton, MenuItem, Image, Grid, Thumbnail, Row, Col, Button, Pagination} from 'react-bootstrap';
 
+import Car from './Car';
+import CarsList from './CarsList';
 import HomePageStore from './../../store/HomePageStore';
 import HomePageActions from './../../actions/HomePageActions';
 
+
+var noOfCarsInPage = 5;
+
+var divStyle = {
+  paddingLeft: '15px',
+  paddingBottom: '30px',
+  paddingTop: '15px'
+};
 
 export default class SearchResult extends React.Component {
 
@@ -53,15 +61,16 @@ export default class SearchResult extends React.Component {
     });
   }
 
+
   getNextPage(pageNumber, cars)
   {
-    if(cars.length >= (pageNumber * 20)){
-      if((cars.length - (pageNumber * 20)) >=20){
+    if(cars.length >= (pageNumber * noOfCarsInPage)){
+      if((cars.length - (pageNumber * noOfCarsInPage)) >=noOfCarsInPage){
         //console.log(JSON.stringify(cars.slice(pageNumber * 20, pageNumber * 20 + 20), null, "\t"))
-        return cars.slice(pageNumber * 20, pageNumber * 20 + 20)
+        return cars.slice(pageNumber * noOfCarsInPage, pageNumber * noOfCarsInPage + noOfCarsInPage)
       } else{
         //console.log(JSON.stringify(cars.slice(pageNumber * 20, cars.length), null, "\t"))
-        return cars.slice(pageNumber * 20, cars.length)
+        return cars.slice(pageNumber * noOfCarsInPage, cars.length)
       }
     }
     return {}
@@ -87,24 +96,24 @@ export default class SearchResult extends React.Component {
           return c.name.toLowerCase().match(searchString);
         }
       });
-    }
+     }
 
-    let numberOfPages = cars.length/20
+    let numberOfPages = cars.length/noOfCarsInPage
     console.log('length of cars == ' + numberOfPages)
 
     if(numberOfPages > 1)
-    {
-      this.getNextPage(1, cars)
-    }
+       {
+         this.getNextPage(1, cars)
+       }
 
     let thisPageCars = this.getNextPage(this.state.activePage -1 , cars);
     console.log("This page cars " + JSON.stringify(thisPageCars, null, "\t"))
 
 
     return(
-      <div className="jumbotron">
+      <div>
         <CarsList cars={thisPageCars} ></CarsList>
-        <Pagination
+        <Pagination style={divStyle}
           prev
           next
           first

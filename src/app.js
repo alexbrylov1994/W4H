@@ -4,16 +4,16 @@ import { IndexRoute, Route } from 'react-router';
 import createBrowserHistory from 'history/lib/createBrowserHistory';
 import ReactStormpath, { Router, HomeRoute, LoginRoute, AuthenticatedRoute } from 'react-stormpath';
 import { LoginPage, RegisterPage, ResetPasswordPage, VerifyEmailPage, ProfilePage } from './components/authentication';
-import { MasterPage, IndexPage, aboutPage, myBookmarks,myGarage } from './components/initialPages';
+import { MasterPage, carDetails, IndexPage, aboutPage, myBookmarks, myGarage } from './components/initialPages';
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
 require('./css/style.scss');
-require('./css/homePageStyleSheet.scss');
-
+require('./css/calenderStyle.scss');
 
 ReactStormpath.init();
+
 
 ReactDOM.render(
   <Router history={createBrowserHistory()}>
@@ -24,14 +24,14 @@ ReactDOM.render(
       <Route path='/register' component={RegisterPage} />
       <Route path='/forgot' component={ResetPasswordPage} />
       <Route path='/about' component={aboutPage} />
-
-      <Route path='/bookmarks' component={myBookmarks} />
-      <Route path='/garage' component={myGarage} />
+      <Route path='/carDetails' component={carDetails} />
 
       <AuthenticatedRoute>
         <HomeRoute path='/profile' component={ProfilePage} />
-
+        <Route path='/bookmarks' component={myBookmarks} />
+        <Route path='/garage' component={myGarage} />
       </AuthenticatedRoute>
+
     </HomeRoute>
   </Router>,
   document.getElementById('app-container')
