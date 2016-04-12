@@ -23,6 +23,16 @@ import TableHeader from 'material-ui/lib/table/table-header';
 import TableRowColumn from 'material-ui/lib/table/table-row-column';
 import TableBody from 'material-ui/lib/table/table-body'
 
+//List
+import List from 'material-ui/lib/lists/list';
+import ListItem from 'material-ui/lib/lists/list-item';
+import ActionGrade from 'material-ui/lib/svg-icons/action/grade';
+import ActionInfo from 'material-ui/lib/svg-icons/action/info';
+import ContentInbox from 'material-ui/lib/svg-icons/content/inbox';
+import ContentDrafts from 'material-ui/lib/svg-icons/content/drafts';
+import ContentSend from 'material-ui/lib/svg-icons/content/send';
+import Divider from 'material-ui/lib/divider';
+
 import events from './events';
 import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
@@ -41,6 +51,11 @@ function initMap() {
 }
 
 export default class car extends React.Component {
+
+  onCalenderViewChange()
+  {
+
+  }
 
   render() {
     var settings = {
@@ -79,6 +94,11 @@ export default class car extends React.Component {
       paddingBottom: '15px',
     };
 
+    var tableStyle = {
+      paddingLeft: '10px',
+      paddingRight: '50px'
+    };
+
     return (
       <Grid>
         <Row style={divStyle}>
@@ -100,8 +120,8 @@ export default class car extends React.Component {
         <Row style={divStyle}>
           <Col xs={12} >
             <Tabs>
-              <Tab label="About" >
-                <Grid>
+              <Tab label="About">
+                <Grid style={tableStyle}>
                   <Row>
                     <Col>
                       <table className="table">
@@ -141,13 +161,23 @@ export default class car extends React.Component {
                     view='week'
                     views={['week', 'day']}
                     toolbar={true}
-                    defaultDate={new Date(2016, 4, 12)}
+                    defaultDate={new Date(2015, 3, 1)}
+                    onView={this.onCalenderViewChange.bind(this)}
                     onSelectEvent={event => alert(event.title)}
                   />
                  </MediaQuery>
 
                  <MediaQuery query='(max-width: 700px)'>
-                   
+                   <BigCalendar
+                     popup
+                     events={events}
+                     view='day'
+                     views={['week', 'day']}
+                     onView={this.onCalenderViewChange.bind(this)}
+                     toolbar={true}
+                     defaultDate={new Date(2015, 3, 1)}
+                     onSelectEvent={event => alert(event.title)}
+                   />
                  </MediaQuery>
 
               </Tab>
@@ -155,9 +185,9 @@ export default class car extends React.Component {
                 <iframe
                   width="100%"
                   height="450"
-                  frameborder="0"
+                  frameBorder="0"
                   src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDX44F0oIpZP6D8E5IC98dQzMF3NNSBEXA
-                    &q=Space+Needle,Seattle+WA" allowfullscreen>
+                    &q=Space+Needle,Seattle+WA" allowFullScreen>
                 </iframe>
               </Tab>
             </Tabs>
