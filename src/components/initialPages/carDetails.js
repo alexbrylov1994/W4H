@@ -94,6 +94,11 @@ export default class car extends React.Component {
       paddingBottom: '15px',
     };
 
+    var tableStyle = {
+      paddingLeft: '10px',
+      paddingRight: '50px'
+    };
+
     return (
       <Grid>
         <Row style={divStyle}>
@@ -115,8 +120,8 @@ export default class car extends React.Component {
         <Row style={divStyle}>
           <Col xs={12} >
             <Tabs>
-              <Tab label="About" >
-                <Grid>
+              <Tab label="About">
+                <Grid style={tableStyle}>
                   <Row>
                     <Col>
                       <table className="table">
