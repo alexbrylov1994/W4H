@@ -62,7 +62,7 @@ export default class myGarage extends React.Component {
 
   var btnlg=
   {
-
+    width: '70px',
     height: '70px',
     padding: '10px 16px',
     fontSize: '24px',
@@ -89,7 +89,7 @@ let close = () => this.setState({ showModal: false});
 
 
           <div >
-            <Button onClick={this.addCar.bind(this)} bsSize="large" bsStyle="info" style={btnlg} align="right" >Add <Glyphicon glyph="plus"/></Button>
+            <Button onClick={this.addCar.bind(this)} bsSize="large" bsStyle="info" style={btnlg} align="right" ><Glyphicon glyph="plus"/></Button>
           </div>
 
         <div className="container-fluid">
