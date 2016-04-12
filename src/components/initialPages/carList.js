@@ -32,9 +32,9 @@ export default class carList extends React.Component {
 
   var picStyle =
   {
-    width: '300px',
-    height: '300px',
-    align: 'left'
+    // width: '300px',
+    // height: '300px',
+     align: 'left'
   };
 
   var textStyle =
