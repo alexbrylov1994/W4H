@@ -6,6 +6,7 @@ import Car from './Car';
 import CarsList from './CarsList';
 import HomePageStore from './../../store/HomePageStore';
 import HomePageActions from './../../actions/HomePageActions';
+import StarRatingComponent from 'react-star-rating-component';
 
 
 var noOfCarsInPage = 5;
