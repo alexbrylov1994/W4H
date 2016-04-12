@@ -1,10 +1,24 @@
 import React from 'react';
 import DocumentTitle from 'react-document-title';
-import { UserProfileForm } from 'react-stormpath';
-import {Tabs, Tab, Thumbnail, Button, Glyphicon, Image, Col} from 'react-bootstrap';
+import { UserProfileForm } from 'react-stormpath';
+import {Modal,Tabs, Tab, Thumbnail, Button, Glyphicon, Image, Col, Input, ButtonInput, ButtonGroup} from 'react-bootstrap';
 
-export default class myGarage extends React.Component {
+export default class carList extends React.Component {
 
+  constructor(props)
+    {
+      super(props);
+      this.state =  {
+
+        showModal: false
+
+      };
+    }
+
+  addCar(event){
+
+    this.setState({ showModal: true});
+  }
 
   render() {
 
@@ -18,9 +32,9 @@ export default class myGarage extends React.Component {
 
   var picStyle =
   {
-    width: '300px',
-    height: '300px',
-    align: 'left'
+    // width: '300px',
+    // height: '300px',
+     align: 'left'
   };
 
   var textStyle =
@@ -31,7 +45,7 @@ export default class myGarage extends React.Component {
   var tnailStyle=
   {
     width: '85%',
-    marginLeft: '7%'
+    align:'center'
   };
 
   var btn =
@@ -45,14 +59,9 @@ export default class myGarage extends React.Component {
       borderRadius: '35px',
     };
 
-    var padStyle=
-    {
-      paddingTop:'15px'
-    };
-
   var btnlg=
   {
-    width: '70px',
+    
     height: '70px',
     padding: '10px 16px',
     fontSize: '24px',
@@ -60,10 +69,11 @@ export default class myGarage extends React.Component {
     borderRadius: '35px',
     marginLeft: '85%'
   };
-
+let close = () => this.setState({ showModal: false});
 
     return (
-    <DocumentTitle title={`Garage`}>
+      <DocumentTitle title={`Garage`}>
+
       <div className="container">
 
           <div className="row">
@@ -75,10 +85,8 @@ export default class myGarage extends React.Component {
 
 
         <div>
-          <Button bsSize="large" bsStyle="info" style={btnlg} align="right" ><Glyphicon glyph="plus"/></Button>
+          <Button onClick={this.addCar.bind(this)} bsSize="large" bsStyle="info" style={btnlg} align="right" >Add <Glyphicon glyph="plus"/></Button>
         </div>
-
-        <div style={padStyle}></div>
 
         <div className="container-fluid">
         <Thumbnail style={tnailStyle}>
@@ -165,9 +173,30 @@ export default class myGarage extends React.Component {
         </Thumbnail>
         </div>
 
+        <Modal  show={this.state.showModal}
+            onHide={close}  container={this}>
+          <Modal.Header closeButton>
+            <Modal.Title>Add new vehicle</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <form>
+               <Input type="text" label="Name" placeholder="Title/Name of vehicle" />
+              <Input type="textarea" label="Description" placeholder="" />
+               <Input type="text" label="Price" addonBefore="$"  />
+               <Input type="file" label="Photo"  />
+                <ButtonGroup>
 
+               <Button  bsStyle="primary" type="submit">Add</Button>
+               <Button onClick={close}>Cancel</Button>
+               </ButtonGroup>
+             </form>
+
+          </Modal.Body>
+
+        </Modal>
 
         </div>
+
       </DocumentTitle>
     );
   }
