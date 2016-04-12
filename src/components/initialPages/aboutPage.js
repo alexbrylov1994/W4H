@@ -1,87 +1,134 @@
 import { Link } from 'react-router';
 import React, { PropTypes } from 'react';
-import {Carousel, CarouselItem} from 'react-bootstrap';
+import {Carousel, CarouselItem, Jumbotron, Col} from 'react-bootstrap';
 import DocumentTitle from 'react-document-title';
-var ImageSlider = require('react-slick');
-import {DropdownButton, MenuItem, Image, Grid, Thumbnail, Row, Col, Button, Modal} from 'react-bootstrap';
-
 
 import { LoginLink } from 'react-stormpath';
+import MediaQuery from 'react-responsive';
 
 export default class aboutPage extends React.Component {
 
-
   render() {
-    var settings = {
-      dots: true,
-      draggable: true,
-      adaptiveHeight: true,
-      centerMode: true,
-      centerPadding: 10,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      infinite: true,
-      responsive: [
-                    { breakpoint: 800, settings: { slidesToShow: 1 } },
-                    { breakpoint: 10000, settings: { slidesToShow: 2 } }
-                  ]
+
+    var picStyle =
+    {
+      width: '80%',
+      height: '500px',
+      align: 'center',
+      margin: '0 auto'
     };
 
-    var carSliderStyle = {
-      margin: '0 auto',
-      padding: '40px',
-      width: '100%',
-      color: '#333',
-      background: '#F8F8F8'
-    };
-    const styles = {
-      headline: {
-        fontSize: 24,
-        paddingTop: 16,
-        marginBottom: 12,
-        fontWeight: 400,
-      },
+    var padStyle=
+    {
+      paddingTop:'55px'
     };
 
-    var divStyle = {
-      paddingLeft: '0px',
-      paddingBottom: '15px',
+    var jubStyle = {
+      paddingLeft: '1.5%',
+      paddingRight: '1.5%'
     };
+
+    var curosolStyle = {
+      borderRadius: '100px'
+    };
+
+    var blackText = {
+      padding:'3% ',
+      borderRadius:'8px',
+      backgroundColor: 'rgba(0,0,0,0.35)'
+    };
+
     return (
+      <div className="container">
 
-      <div>
-        <Grid>
-          <Row style={divStyle}>
-            <Col xs={12} style={carSliderStyle}>
-            <div style={carSliderStyle}>
-                <ImageSlider {...settings}>
-                  <img src='https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg' />
-                  <img src='https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg' />
-                  <img src='https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg' />
-                  <img src='https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg' />
-                  <img src='https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg' />
-                  <img src='https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg' />
-                  <img src='https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg' />
-              </ImageSlider>
-              </div>
-            </Col>
-          </Row>
-          <Row>
-            <p>
-              <h5>
-                Wheels4Hire is a peer to peer vehicle sharing website that connects vehicle renters to clients and vice versa. The idea originated from discussion and we identified that a recession is upcoming. Recession will result in people looking to generate extra income. Wheels4Hire helps renters connect with clients looking to rent a vehicle for a specified period of time based on an agreement between the two parties involved. On the website, people will be able to search for potential vehicles to rent based on make, model, location proximity, vehicle type and other additional criterias.
-              </h5>
-            </p>
-          </Row>
-          <Row>
-            <footer>
-              <p>Done by: Seng513 G10</p>
-              <p>Contact information: <a href="mailto:Seng513G10@example.com">
-              mailto:Seng513G10@example.com</a>.</p>
-            </footer>
-          </Row>
-        </Grid>
+      <div style={jubStyle}>
+        <Jumbotron >
+          <h3 className="text-center">Welcome W4Hire users!</h3>
+          <p className="text-center"> Prepare to get amazed at how easy everything is!</p>
+        </Jumbotron>
+      </div>
+
+
+        <div className="container-fluid">
+        <Carousel style={curosolStyle}>
+          <CarouselItem>
+            <img className="img-responsive" style={picStyle} alt="car" src="https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg"/>
+            <div style={blackText} className="carousel-caption">
+              <h3>Rent Car</h3>
+              <p>The ultimate place for renting cars and have a comfortable, affordable ride</p>
+            </div>
+
+          </CarouselItem>
+          <CarouselItem>
+            <img className="img-responsive" style={picStyle} alt="money" src="http://salesman.red/wp-content/uploads/2016/01/money-background-imagesearn-money-online-7a4zz8nx.jpg"/>
+            <div style={blackText}  className="carousel-caption">
+              <h3>Make Money</h3>
+              <p>This application allows you to make money with a minimum ammount of effort</p>
+            </div>
+          </CarouselItem>
+          <CarouselItem>
+            <img className="img-responsive" style={picStyle} alt="safety" src="http://www.adamsindustriesinc.com/wp-content/uploads/2016/02/safety-first2.jpg"/>
+            <div style={blackText}  className="carousel-caption">
+              <h3>Safety</h3>
+              <p>We got you covered. WE know, accidents happen, and we are there to make
+              sure you are safe!</p>
+            </div>
+          </CarouselItem>
+        </Carousel>
+
+        <div style={padStyle}> </div>
+
+        <Col xs={12}>
+        <div>
+          <h3 className="text-center"> History </h3>
+          <p className="text-center"> W4Hire was created by 6 ambitious entrepreneurs who wanted to introduce the world cheap, easy transportation and a way to make money.
+          We live in a time or recession and  some people are in a deed of money and out platform can help those people to have an extra source of income.
+          We want to make this world a better place and make it more affordable for everyone.
+          </p>
+
         </div>
-      );
+        </Col>
+        <div style={padStyle}> </div>
+
+
+        <div style={padStyle}> </div>
+
+        <Col xs={12} sm={12} md={4} lg={4}>
+        <div>
+          <h3 className="text-center"> Rent Cars </h3>
+          <p> Want to have an affordable transportation?
+              We got your back! We are providing most affordable prices
+              on the market. Who needs taxi drivers or buying a car when you can
+              rent a car for a small fee and get to any location you want?
+          </p>
+        </div>
+        </Col>
+
+        <Col xs={12} sm={12} md={4} lg={4}>
+        <div>
+          <h3 className="text-center"> Make Money </h3>
+          <p> We are living in a time of recession and everyone need some extra money.
+              You are a college student? Don’t have a steady job?
+              Unemployed? Want to have enough money for a vacation?
+              Want to start your own startup? Then we got your back, with
+              our platform you can make lots of money with a minimal amount of effort!
+          </p>
+        </div>
+        </Col>
+
+        <Col xs={12} sm={12} md={4} lg={4}>
+        <div>
+          <h3 className="text-center"> Stay safe </h3>
+          <p> No one is safe those days, especially when you have deal with other clients.
+              We aware that your car can be stolen, damaged, etc. And guess what?
+              We got you covered! We take security precautions to ensure your safety
+              and if something happened to your car, your problems will be fixed in no time!
+          </p>
+        </div>
+        </Col>
+
+        </div>
+      </div>
+    );
   }
 }

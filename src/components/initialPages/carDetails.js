@@ -9,6 +9,8 @@ import { LoginLink } from 'react-stormpath';
 
 import { GoogleMap, Marker, SearchBox } from "react-google-maps";
 
+//
+import RaisedButton from 'material-ui/lib/raised-button';
 
 //Tabs
 import Tabs from 'material-ui/lib/tabs/tabs';
@@ -52,6 +54,22 @@ function initMap() {
 
 export default class car extends React.Component {
 
+  constructor(props)
+  {
+    super(props);
+    this.state =  {
+      bookmarked : false
+    };
+  }
+
+  bookmarkButtonHandler(e){
+    e.preventDefault();
+    if(  this.state.bookmarked){
+      this.setState({ bookmarked: false});
+    }else{
+      this.setState({ bookmarked: true});
+    }
+  }
   onCalenderViewChange()
   {
 
@@ -109,6 +127,17 @@ export default class car extends React.Component {
       paddingTop: '10px'
     };
 
+    const ActionBtnsStyle = {
+      margin: 12,
+    };
+
+    const Tabstyle = {
+      backgroundColor: '#3F5E68',
+      color: "black"
+    };
+
+    var bookmarkButtonText = this.state.bookmarked ? 'Remove bookmark ' : 'Bookmark ';
+    var bookmarkButtonStyle =  this.state.bookmarked ? 'danger' : 'default';
 
     return (
       <Grid>
@@ -130,7 +159,7 @@ export default class car extends React.Component {
 
         <Row style={divStyle}>
           <Col xs={12} >
-            <Tabs>
+            <Tabs tabItemContainerStyle={Tabstyle}>
               <Tab label="About">
                 <Grid style={tableStyle}>
                   <Row>
@@ -204,6 +233,19 @@ export default class car extends React.Component {
                 </iframe>
               </Tab>
             </Tabs>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={12}>
+            {/* Material UI button
+            <RaisedButton label="Send Request" primary={true} style={ActionBtnsStyle} />
+            <RaisedButton label="Bookmark" primary={true} style={ActionBtnsStyle} />
+            */}
+            <Button  bsStyle="success" > Send Request
+            </Button>&nbsp;
+
+            <Button onClick={this.bookmarkButtonHandler.bind(this)} bsStyle={bookmarkButtonStyle} > {bookmarkButtonText}
+            </Button>&nbsp;
           </Col>
         </Row>
       </Grid>

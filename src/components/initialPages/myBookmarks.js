@@ -79,7 +79,7 @@ export default class myBookmarks extends React.Component {
 
         <div className="container-fluid">
         <Col xs={12} sm={12} md={6} lg={6}>
-        <Image className="img-responsive" src="http://blog.caranddriver.com/wp-content/uploads/2015/03/2017-Ford-GT-301-876x535.jpg" style={picStyle}/>
+        <Image className="img-responsive" src="https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg" style={picStyle}/>
         </Col>
 
         <Col xs={12} sm={12} md={6} lg={6}>
@@ -107,7 +107,7 @@ export default class myBookmarks extends React.Component {
 
         <div className="container-fluid">
         <Col xs={12} sm={12} md={6} lg={6}>
-        <Image className="img-responsive" src="http://blog.caranddriver.com/wp-content/uploads/2015/03/2017-Ford-GT-301-876x535.jpg" style={picStyle}/>
+        <Image className="img-responsive" src="https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg" style={picStyle}/>
         </Col>
 
         <Col xs={12} sm={12} md={6} lg={6}>
@@ -135,7 +135,7 @@ export default class myBookmarks extends React.Component {
 
         <div className="container-fluid">
         <Col xs={12} sm={12} md={6} lg={6}>
-        <Image className="img-responsive" src="http://blog.caranddriver.com/wp-content/uploads/2015/03/2017-Ford-GT-301-876x535.jpg" style={picStyle}/>
+        <Image className="img-responsive" src="https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg" style={picStyle}/>
         </Col>
 
         <Col xs={12} sm={12} md={6} lg={6}>

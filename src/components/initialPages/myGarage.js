@@ -1,7 +1,10 @@
 import React from 'react';
 import DocumentTitle from 'react-document-title';
 import { UserProfileForm } from 'react-stormpath';
-import {Modal,Tabs, Tab, Thumbnail, Button, Glyphicon, Image, Col, Input, ButtonInput, ButtonGroup} from 'react-bootstrap';
+import {Modal,Tabs, Tab, Thumbnail, Button, Glyphicon, Image,Row, Col,Grid, Input, ButtonInput, ButtonGroup} from 'react-bootstrap';
+import FloatingActionButton from 'material-ui/lib/floating-action-button';
+import ContentAdd from 'material-ui/lib/svg-icons/content/add';
+import MediaQuery from 'react-responsive';
 
 export default class myGarage extends React.Component {
 
@@ -60,6 +63,9 @@ export default class myGarage extends React.Component {
       borderRadius: '35px',
     };
 
+    // <Button onClick={this.addCar.bind(this)} bsSize="large" bsStyle="info"
+    //  style={btnlg} ><Glyphicon glyph="plus"/></Button>
+
   var btnlg=
   {
     width: '70px',
@@ -70,6 +76,17 @@ export default class myGarage extends React.Component {
     borderRadius: '35px',
     marginLeft: '85%'
   };
+
+  const plusBtnStyle = {
+    marginRight: 20,
+    paddingLeft: '50%'
+  };
+
+  const plusBtnStyle2 = {
+    marginRight: 20,
+    paddingLeft: '40%'
+  };
+
 let close = () => this.setState({ showModal: false});
 
     return (
@@ -77,20 +94,34 @@ let close = () => this.setState({ showModal: false});
 
       <div className="container">
 
-          <div className="row">
+        <Grid>
+          <Row>
+            <Col xs={5}>
+              <h3>My Garage</h3>
+            </Col>
+            <MediaQuery query='(min-width: 450px)'>
+              <Col xs={6} style={plusBtnStyle}>
+                <FloatingActionButton secondary={true}
+                  onMouseDown={this.addCar.bind(this)}
+                  backgroundColor='#00ccff'>
+                  <ContentAdd />
+                </FloatingActionButton>
+              </Col>
+            </MediaQuery>
 
-              <div className="col-xs-12">
-                <h3>My Garage</h3>
-                  <hr />
-
-                </div>
-
-          </div>
-
-
-          <div >
-            <Button onClick={this.addCar.bind(this)} bsSize="large" bsStyle="info" style={btnlg} align="right" ><Glyphicon glyph="plus"/></Button>
-          </div>
+            <MediaQuery query='(max-width: 450px)'>
+              <Col xs={6} style={plusBtnStyle2}>
+                <FloatingActionButton
+                  secondary={true}
+                  onMouseDown={this.addCar.bind(this)}
+                  backgroundColor='#00ccff'>
+                  <ContentAdd />
+                </FloatingActionButton>
+              </Col>
+            </MediaQuery>
+          </Row>
+        </Grid>
+        <hr />
 
         <div className="container-fluid">
 
@@ -98,7 +129,7 @@ let close = () => this.setState({ showModal: false});
 
         <div className="container-fluid">
         <Col xs={12} sm={12} md={6} lg={6}>
-        <Image className="img-responsive" src="http://blog.caranddriver.com/wp-content/uploads/2015/03/2017-Ford-GT-301-876x535.jpg" style={picStyle}/>
+        <Image className="img-responsive" src="https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg" style={picStyle}/>
         </Col>
 
         <Col xs={12} sm={12} md={6} lg={6}>
@@ -127,7 +158,7 @@ let close = () => this.setState({ showModal: false});
 
         <div className="container-fluid">
         <Col xs={12} sm={12} md={6} lg={6}>
-        <Image className="img-responsive" src="http://blog.caranddriver.com/wp-content/uploads/2015/03/2017-Ford-GT-301-876x535.jpg" style={picStyle}/>
+        <Image className="img-responsive" src="https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg" style={picStyle}/>
         </Col>
 
         <Col xs={12} sm={12} md={6} lg={6}>
@@ -156,7 +187,7 @@ let close = () => this.setState({ showModal: false});
 
         <div className="container-fluid">
         <Col xs={12} sm={12} md={6} lg={6}>
-        <Image className="img-responsive" src="http://blog.caranddriver.com/wp-content/uploads/2015/03/2017-Ford-GT-301-876x535.jpg" style={picStyle}/>
+        <Image className="img-responsive" src="https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg" style={picStyle}/>
         </Col>
 
         <Col xs={12} sm={12} md={6} lg={6}>
