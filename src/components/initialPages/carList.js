@@ -25,8 +25,7 @@ export default class carList extends React.Component {
 
   var textStyle =
   {
-    align:'right',
-    paddingLeft: '90%'
+    align:'right'
   };
 
 
@@ -42,7 +41,7 @@ export default class carList extends React.Component {
           </div>
 
         <div>
-        <Button bsSize="large"><Glyphicon glyph="plus"/>Add</Button>
+        <Button bsSize="large"><Glyphicon glyph="minus"/>Add</Button>
         </div>
 
         <div>
@@ -71,7 +70,7 @@ export default class carList extends React.Component {
         </Thumbnail>
 
         </div>
-      <p>  </p>
+
 
         </div>
       </DocumentTitle>
