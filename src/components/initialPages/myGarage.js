@@ -3,7 +3,7 @@ import DocumentTitle from 'react-document-title';
 import { UserProfileForm } from 'react-stormpath';
 import {Modal,Tabs, Tab, Thumbnail, Button, Glyphicon, Image, Col, Input, ButtonInput, ButtonGroup} from 'react-bootstrap';
 
-export default class carList extends React.Component {
+export default class myGarage extends React.Component {
 
   constructor(props)
     {
@@ -33,7 +33,7 @@ export default class carList extends React.Component {
   var picStyle =
   {
     // width: '300px',
-    // height: '300px',
+    minHeight: '150px',
      align: 'left'
   };
 
@@ -45,6 +45,7 @@ export default class carList extends React.Component {
   var tnailStyle=
   {
     width: '85%',
+      marginLeft: '7%',
     align:'center'
   };
 
@@ -61,7 +62,7 @@ export default class carList extends React.Component {
 
   var btnlg=
   {
-    
+
     height: '70px',
     padding: '10px 16px',
     fontSize: '24px',
@@ -77,18 +78,22 @@ let close = () => this.setState({ showModal: false});
       <div className="container">
 
           <div className="row">
-            <div className="col-xs-12">
-              <h3>My Garage</h3>
-              <hr />
-            </div>
+
+              <div className="col-xs-12">
+                <h3>My Garage</h3>
+                  <hr />
+
+                </div>
+
           </div>
 
 
-        <div>
-          <Button onClick={this.addCar.bind(this)} bsSize="large" bsStyle="info" style={btnlg} align="right" >Add <Glyphicon glyph="plus"/></Button>
-        </div>
+          <div >
+            <Button onClick={this.addCar.bind(this)} bsSize="large" bsStyle="info" style={btnlg} align="right" >Add <Glyphicon glyph="plus"/></Button>
+          </div>
 
         <div className="container-fluid">
+
         <Thumbnail style={tnailStyle}>
 
         <div className="container-fluid">
@@ -98,7 +103,7 @@ let close = () => this.setState({ showModal: false});
 
         <Col xs={12} sm={12} md={6} lg={6}>
           <h3>Ferrari 458 Italia (2009)</h3>
-          <p style={textStyle} >Manual</p>
+          <p style={textStyle} >Ferrari 458 Italia </p>
           <p>Price: 60$/hr</p>
         </Col>
 
@@ -127,7 +132,7 @@ let close = () => this.setState({ showModal: false});
 
         <Col xs={12} sm={12} md={6} lg={6}>
           <h3>Ferrari 458 Italia (2009)</h3>
-          <p style={textStyle}>Manual</p>
+          <p style={textStyle}>Ferrari 458 Italia </p>
           <p>Price: 60$/hr</p>
         </Col>
 

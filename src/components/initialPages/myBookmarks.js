@@ -17,8 +17,8 @@ export default class myBookmarks extends React.Component {
 
   var picStyle =
   {
-    width: '300px',
-    height: '300px',
+
+    minHeight: '150px',
     align: 'left'
   };
 
@@ -62,7 +62,7 @@ export default class myBookmarks extends React.Component {
 
 
     return (
-      <DocumentTitle title={`Garage`}>
+      <DocumentTitle title={`Bookmarks`}>
       <div className="container">
 
           <div className="row">
