@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
 import React, { PropTypes } from 'react';
-import {Carousel, CarouselItem} from 'react-bootstrap';
+import {Carousel, CarouselItem, Glyphicon} from 'react-bootstrap';
 import DocumentTitle from 'react-document-title';
 
 import MediaQuery from 'react-responsive';
@@ -244,7 +244,7 @@ export default class car extends React.Component {
             <Button  bsStyle="success" > Send Request
             </Button>&nbsp;
 
-            <Button onClick={this.bookmarkButtonHandler.bind(this)} bsStyle={bookmarkButtonStyle} > {bookmarkButtonText}
+            <Button onClick={this.bookmarkButtonHandler.bind(this)} bsStyle={bookmarkButtonStyle} > <Glyphicon glyph="bookmark" />  {bookmarkButtonText}
             </Button>&nbsp;
           </Col>
         </Row>

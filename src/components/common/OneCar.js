@@ -67,7 +67,7 @@ export default class Car extends React.Component {
                       </Button>&nbsp;
                    </Link>
 
-                   <Button onClick={this.bookmarkButtonHandler.bind(this)} bsSize="small" bsStyle={bookmarkButtonStyle} > {bookmarkButtonText}
+                   <Button onClick={this.bookmarkButtonHandler.bind(this)} bsSize="small" bsStyle={bookmarkButtonStyle}> <Glyphicon glyph="bookmark" />   {bookmarkButtonText}
                    </Button>&nbsp;
                  </p>
               </Authenticated>

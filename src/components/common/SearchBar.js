@@ -152,12 +152,13 @@ export default class SearchBar extends React.Component {
           }
         <MediaQuery query='(min-width: 700px)'>
             <Col xs={12} sm={12} md={6} style={searBharStyle}>
-            <div className="input-group">
               <input type="text" className="form-control"
                 onChange={this.onChange.bind(this)} placeholder="search Cars" value={this.state.searchString}
               />
-              <span className="input-group-btn">
-                <button className="btn btn-default" type="button">Search</button>
+            <div className="input-group">
+
+            <span className="input-group-btn">
+                {/*<button className="btn btn-default" type="button">Search</button>*/}
               </span>
             </div>
            </Col>
@@ -170,15 +171,16 @@ export default class SearchBar extends React.Component {
        }
         <MediaQuery query='(max-width: 700px)'>
           <Col xs={12} sm={12} md={6} style={searBharStyle}>
-          <div className="input-group">
             <input type="text" className="form-control"
               onChange={this.onChange.bind(this)}
               placeholder="search Cars"
               value={this.state.searchString}
               onClick={this.onSearchInputFocus.bind(this)}
             />
+          <div className="input-group">
+
             <span className="input-group-btn">
-              <button className="btn btn-default" type="button">Search</button>
+              {/*<button className="btn btn-default" type="button">Search</button>*/}
             </span>
           </div>
          </Col>

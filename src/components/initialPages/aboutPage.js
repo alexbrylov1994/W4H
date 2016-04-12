@@ -81,7 +81,7 @@ export default class aboutPage extends React.Component {
         <Col xs={12}>
         <div>
           <h3 className="text-center"> History </h3>
-          <p className="text-center"> W4Hire was created by 6 ambitious entrepreneurs who wanted to introduce the world cheap, easy transportation and a way to make money.
+          <p > W4Hire was created by 6 ambitious entrepreneurs who wanted to introduce the world cheap, easy transportation and a way to make money.
           We live in a time or recession and  some people are in a deed of money and out platform can help those people to have an extra source of income.
           We want to make this world a better place and make it more affordable for everyone.
           </p>
