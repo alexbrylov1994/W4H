@@ -1,7 +1,7 @@
 import React from 'react';
 import DocumentTitle from 'react-document-title';
 import { UserProfileForm } from 'react-stormpath';
-import {Tabs, Tab, Thumbnail, Button, Glyphicon, Image, Col} from 'react-bootstrap';
+import {Tabs, Tab, Thumbnail, Button, Glyphicon, Image, Col, Input} from 'react-bootstrap';
 export default class rentalHistory extends React.Component {
 
   render() {
@@ -87,7 +87,16 @@ export default class rentalHistory extends React.Component {
           <p>Price: 60$/hr</p>
           <p>Rating given: </p>
           <Button bsStyle="warning"><Glyphicon glyph="star"/></Button>
+          <Button bsStyle="warning"><Glyphicon glyph="star"/></Button>
+          <Button bsStyle="warning"><Glyphicon glyph="star"/></Button>
+          <Button><Glyphicon glyph="star"/></Button>
+          <Button><Glyphicon glyph="star"/></Button>
           <p>Owner Review: </p>
+
+          <Thumbnail>
+          <p>This guy has dirt all over his car, do not rent it!</p>
+          </Thumbnail>
+
         </Col>
 
         </div>
@@ -109,11 +118,16 @@ export default class rentalHistory extends React.Component {
           <h3>Ferrari 458 Italia (2009)</h3>
           <p>Price: 60$/hr</p>
           <p>Rating given: </p>
-          <Button bsStyle="warning"><Glyphicon glyph="star"/></Button>
+          <Button><Glyphicon glyph="star"/></Button>
+          <Button><Glyphicon glyph="star"/></Button>
+          <Button><Glyphicon glyph="star"/></Button>
+          <Button><Glyphicon glyph="star"/></Button>
+          <Button><Glyphicon glyph="star"/></Button>
           <p>Owner Review: </p>
         </Col>
 
         <Col xs={12} sm={12} md={6} lg={6}>
+        <Input type="textarea" placeholder="Enter Review" />
           <p>
             <Button bsStyle="primary">Submit Rating</Button>
           </p>
