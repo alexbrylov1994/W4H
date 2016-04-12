@@ -4,7 +4,7 @@ import { IndexRoute, Route } from 'react-router';
 import createBrowserHistory from 'history/lib/createBrowserHistory';
 import ReactStormpath, { Router, HomeRoute, LoginRoute, AuthenticatedRoute } from 'react-stormpath';
 import { LoginPage, RegisterPage, ResetPasswordPage, VerifyEmailPage, ProfilePage, ClientProfile } from './components/authentication';
-import { MasterPage, IndexPage, aboutPage, myBookmarks,myGarage, carList, carDetailes } from './components/initialPages';
+import { MasterPage, IndexPage, aboutPage, myBookmarks,myGarage, carList, carDetailes, rentalHistory } from './components/initialPages';
 
 ReactStormpath.init();
 
@@ -23,6 +23,7 @@ ReactDOM.render(
       <Route path='/clientprofile' component={ClientProfile} />
       <Route path='/carlist' component={carList} />
       <Route path='/cardetailes' component={carDetailes} />
+      <Route path='/rental' component={rentalHistory} />
 
 
 
