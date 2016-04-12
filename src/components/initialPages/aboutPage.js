@@ -22,6 +22,24 @@ export default class aboutPage extends React.Component {
       paddingTop:'55px'
     };
 
+    var alcenter=
+    {
+      margin: '0 auto'
+    };
+
+    var footStyle=
+    {
+      marginLeft:'0px',
+      background: '#AfAfAf',
+      fontSize: '90%',
+      margin: '0 auto',
+      paddingLeft:'0px',
+      paddingRight:'0px',
+      marginLeft: '0px',
+      marginRigt: '0px',
+
+    };
+
     return (
       <div className="container">
 
@@ -109,6 +127,27 @@ export default class aboutPage extends React.Component {
         </Col>
 
         </div>
+
+        <div style={padStyle}></div>
+
+        <div className="panel panel-default container-responsive">
+        <div className="panel-footer">
+
+        <div className="text-center">
+        <h3>Our Information</h3>
+        <p>121, Clear Water Bay Road </p>
+        <p>Clear Water Bay, Kowloon</p>
+        <p>HONG KONG</p>
+        <p>Tel.: +852 1234 5678</p>
+        <p>Fax: +852 8765 4321</p>
+        <p>Email: <a href="mailto:alexbrylov@hotmail.com">W4H@W4H.net</a></p>
+        </div>
+
+        </div>
+        </div>
+
+
+
       </div>
     );
   }
