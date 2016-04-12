@@ -3,7 +3,12 @@ import React, { PropTypes } from 'react';
 import {Carousel, CarouselItem} from 'react-bootstrap';
 import DocumentTitle from 'react-document-title';
 
+import MediaQuery from 'react-responsive';
+
 import { LoginLink } from 'react-stormpath';
+
+import { GoogleMap, Marker, SearchBox } from "react-google-maps";
+
 
 //Tabs
 import Tabs from 'material-ui/lib/tabs/tabs';
@@ -26,6 +31,14 @@ BigCalendar.momentLocalizer(moment)
 import {DropdownButton, MenuItem, Image, Grid, Thumbnail, Row, Col, Button, Modal} from 'react-bootstrap';
 import ImageGallery from 'react-image-gallery';
 var ImageSlider = require('react-slick');
+
+function initMap() {
+     var mapDiv = document.getElementById('map');
+     var map = new google.maps.Map(mapDiv, {
+       center: {lat: 44.540, lng: -78.546},
+       zoom: 8
+     });
+}
 
 export default class car extends React.Component {
 
@@ -76,7 +89,10 @@ export default class car extends React.Component {
                 <img src='https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg' />
                 <img src='https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg' />
                 <img src='https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg' />
-              </ImageSlider>
+                <img src='https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg' />
+                <img src='https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg' />
+                <img src='https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg' />
+            </ImageSlider>
             </div>
           </Col>
         </Row>
@@ -117,6 +133,8 @@ export default class car extends React.Component {
                 </Grid>
               </Tab>
               <Tab label="Availability" >
+
+                <MediaQuery query='(min-width: 700px)'>
                   <BigCalendar
                     popup
                     events={events}
@@ -126,14 +144,21 @@ export default class car extends React.Component {
                     defaultDate={new Date(2016, 4, 12)}
                     onSelectEvent={event => alert(event.title)}
                   />
+                 </MediaQuery>
+
+                 <MediaQuery query='(max-width: 700px)'>
+                   
+                 </MediaQuery>
+
               </Tab>
               <Tab label="Map">
-                <div>
-                  <h2 style={styles.headline}>Tab Three</h2>
-                  <p>
-                    This is a third example tab.
-                  </p>
-                </div>
+                <iframe
+                  width="100%"
+                  height="450"
+                  frameborder="0"
+                  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDX44F0oIpZP6D8E5IC98dQzMF3NNSBEXA
+                    &q=Space+Needle,Seattle+WA" allowfullscreen>
+                </iframe>
               </Tab>
             </Tabs>
           </Col>
