@@ -48,6 +48,7 @@ export default class aboutPage extends React.Component {
       paddingBottom: '15px',
     };
     return (
+
       <div>
         <Grid>
           <Row style={divStyle}>
@@ -80,8 +81,7 @@ export default class aboutPage extends React.Component {
             </footer>
           </Row>
         </Grid>
-
         </div>
-    );
+      );
   }
 }

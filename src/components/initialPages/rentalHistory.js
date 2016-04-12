@@ -1,9 +1,8 @@
 import React from 'react';
 import DocumentTitle from 'react-document-title';
 import { UserProfileForm } from 'react-stormpath';
-import {Tabs, Tab, Thumbnail, Button, Glyphicon, Image, Col} from 'react-bootstrap';
-
-export default class myBookmarks extends React.Component {
+import {Tabs, Tab, Thumbnail, Button, Glyphicon, Image, Col, Input} from 'react-bootstrap';
+export default class rentalHistory extends React.Component {
 
   render() {
 
@@ -62,15 +61,16 @@ export default class myBookmarks extends React.Component {
 
 
     return (
-      <DocumentTitle title={`Garage`}>
+      <DocumentTitle title={`History`}>
       <div className="container">
 
           <div className="row">
             <div className="col-xs-12">
-              <h3>My Bookmarks</h3>
+              <h3>Rental History</h3>
               <hr />
             </div>
           </div>
+
 
         <div style={padStyle}></div>
 
@@ -84,17 +84,21 @@ export default class myBookmarks extends React.Component {
 
         <Col xs={12} sm={12} md={6} lg={6}>
           <h3>Ferrari 458 Italia (2009)</h3>
-          <p style={textStyle} >Manual</p>
           <p>Price: 60$/hr</p>
+          <p>Rating given: </p>
+          <Button bsStyle="warning"><Glyphicon glyph="star"/></Button>
+          <Button bsStyle="warning"><Glyphicon glyph="star"/></Button>
+          <Button bsStyle="warning"><Glyphicon glyph="star"/></Button>
+          <Button><Glyphicon glyph="star"/></Button>
+          <Button><Glyphicon glyph="star"/></Button>
+          <p>Owner Review: </p>
+
+          <Thumbnail>
+          <p>This guy has dirt all over his car, do not rent it!</p>
+          </Thumbnail>
+
         </Col>
 
-        <Col xs={12} sm={12} md={6} lg={6}>
-          <p>
-            <Button bsStyle="primary"><Glyphicon glyph="eye-open"/> View</Button>
-            <Button bsStyle="danger"><Glyphicon glyph="remove"/> Remove</Button>
-
-          </p>
-        </Col>
         </div>
 
         </Thumbnail>
@@ -112,42 +116,20 @@ export default class myBookmarks extends React.Component {
 
         <Col xs={12} sm={12} md={6} lg={6}>
           <h3>Ferrari 458 Italia (2009)</h3>
-          <p style={textStyle}>Manual</p>
           <p>Price: 60$/hr</p>
+          <p>Rating given: </p>
+          <Button><Glyphicon glyph="star"/></Button>
+          <Button><Glyphicon glyph="star"/></Button>
+          <Button><Glyphicon glyph="star"/></Button>
+          <Button><Glyphicon glyph="star"/></Button>
+          <Button><Glyphicon glyph="star"/></Button>
+          <p>Owner Review: </p>
         </Col>
 
         <Col xs={12} sm={12} md={6} lg={6}>
+        <Input type="textarea" placeholder="Enter Review" />
           <p>
-            <Button bsStyle="primary"><Glyphicon glyph="eye-open"/> View</Button>
-            <Button bsStyle="danger"><Glyphicon glyph="remove"/> Remove</Button>
-
-          </p>
-        </Col>
-        </div>
-
-        </Thumbnail>
-        </div>
-
-
-
-        <div className="container-fluid">
-        <Thumbnail style={tnailStyle}>
-
-        <div className="container-fluid">
-        <Col xs={12} sm={12} md={6} lg={6}>
-        <Image className="img-responsive" src="http://blog.caranddriver.com/wp-content/uploads/2015/03/2017-Ford-GT-301-876x535.jpg" style={picStyle}/>
-        </Col>
-
-        <Col xs={12} sm={12} md={6} lg={6}>
-          <h3>Manual</h3>
-          <p style={textStyle} >Ferrari 458 Italia (2009)</p>
-          <p>Price: 60$/hr</p>
-        </Col>
-
-        <Col xs={12} sm={12} md={6} lg={6}>
-          <p>
-            <Button bsStyle="primary"><Glyphicon glyph="eye-open"/> View</Button>
-            <Button bsStyle="danger"><Glyphicon glyph="remove"/> Remove</Button>
+            <Button bsStyle="primary">Submit Rating</Button>
           </p>
         </Col>
         </div>
