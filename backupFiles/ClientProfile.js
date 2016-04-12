@@ -5,53 +5,6 @@ import {Tabs, Tab, Thumbnail, Button} from 'react-bootstrap';
 
 export default class ClientProfile extends React.Component {
   render() {
-    var buttonStyle =
-    {
-      width: '100px',
-      height: '40px',
-      background:'#bbb',
-      color: '#999'
-    };
-
-    var picStyle =
-    {
-      width: '300px',
-      height: '300px',
-      align: 'left'
-    };
-
-    var textStyle =
-    {
-      align:'right'
-    };
-
-    var tnailStyle=
-    {
-      width: '85%',
-      align:'center'
-    };
-
-    var btn =
-      {
-        width: '50px',
-        height: '50px',
-        textAlign: 'center',
-        padding: '10px 16px',
-        fontSize: '18px',
-        lineHeight: '1.33',
-        borderRadius: '35px',
-      };
-
-    var btnlg=
-    {
-      width: '70px',
-      height: '70px',
-      padding: '10px 16px',
-      fontSize: '24px',
-      lineHeight: '1.33',
-      borderRadius: '35px',
-      marginLeft: '85%'
-    };
 
     return (
       <DocumentTitle title={`Renter Profile`}>
