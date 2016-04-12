@@ -1,10 +1,24 @@
 import React from 'react';
 import DocumentTitle from 'react-document-title';
 import { UserProfileForm } from 'react-stormpath';
-import {Tabs, Tab, Thumbnail, Button, Glyphicon, Image, Col} from 'react-bootstrap';
+import {Modal,Tabs, Tab, Thumbnail, Button, Glyphicon, Image, Col, Input, ButtonInput, ButtonGroup} from 'react-bootstrap';
 
 export default class carList extends React.Component {
 
+  constructor(props)
+    {
+      super(props);
+      this.state =  {
+
+        showModal: false
+
+      };
+    }
+
+  addCar(event){
+
+    this.setState({ showModal: true});
+  }
 
   render() {
 
@@ -55,10 +69,11 @@ export default class carList extends React.Component {
     borderRadius: '35px',
     marginLeft: '85%'
   };
-
+let close = () => this.setState({ showModal: false});
 
     return (
       <DocumentTitle title={`Garage`}>
+
       <div className="container">
 
           <div className="row">
@@ -70,7 +85,7 @@ export default class carList extends React.Component {
 
 
         <div>
-          <Button bsSize="large" bsStyle="info" style={btnlg} align="right" ><Glyphicon glyph="plus"/></Button>
+          <Button onClick={this.addCar.bind(this)} bsSize="large" bsStyle="info" style={btnlg} align="right" ><Glyphicon glyph="plus"/></Button>
         </div>
 
         <div className="container-fluid">
@@ -158,9 +173,30 @@ export default class carList extends React.Component {
         </Thumbnail>
         </div>
 
+        <Modal  show={this.state.showModal}
+            onHide={close}  container={this}>
+          <Modal.Header closeButton>
+            <Modal.Title>Add Car</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <form>
+               <Input type="text" label="Name" placeholder="Title/Name of vehicle" />
+              <Input type="textarea" label="Description" placeholder="" />
+               <Input type="text" label="Price" addonBefore="$"  />
+               <Input type="file" label="Photo"  />
+                <ButtonGroup>
 
+               <Button  bsStyle="primary" type="submit">Add</Button>
+               <Button onClick={close}>Cancel</Button>
+               </ButtonGroup>
+             </form>
+
+          </Modal.Body>
+
+        </Modal>
 
         </div>
+
       </DocumentTitle>
     );
   }
