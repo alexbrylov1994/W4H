@@ -126,7 +126,26 @@ export default class aboutPage extends React.Component {
           </p>
         </div>
         </Col>
+        <br/>
+        <Col xs={12}>
+        <div style={padStyle}></div>
 
+          <div className="panel panel-default container-responsive">
+          <div className="panel-footer">
+
+          <div className="text-center">
+          <h3>Our Information</h3>
+          <p>121, Clear Water Bay Road </p>
+          <p>Clear Water Bay, Kowloon</p>
+          <p>HONG KONG</p>
+          <p>Tel.: +852 1234 5678</p>
+          <p>Fax: +852 8765 4321</p>
+          <p>Email: <a href="mailto:alexbrylov@hotmail.com">W4H@W4H.net</a></p>
+          </div>
+
+          </div>
+          </div>
+        </Col>
         </div>
       </div>
     );
