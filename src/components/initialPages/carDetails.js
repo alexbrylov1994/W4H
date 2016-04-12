@@ -89,6 +89,11 @@ export default class car extends React.Component {
       },
     };
 
+    var divStyleR1 = {
+      paddingLeft: '1.5%',
+      paddingRight: '1.5%',
+      paddingBottom: '15px',
+    };
     var divStyle = {
       paddingLeft: '0px',
       paddingBottom: '15px',
@@ -99,9 +104,15 @@ export default class car extends React.Component {
       paddingRight: '50px'
     };
 
+
+    var calenderStyle = {
+      paddingTop: '10px'
+    };
+
+
     return (
       <Grid>
-        <Row style={divStyle}>
+        <Row style={divStyleR1}>
           <Col xs={12} style={carSliderStyle}>
           <div style={carSliderStyle}>
             	<ImageSlider {...settings}>
@@ -164,6 +175,7 @@ export default class car extends React.Component {
                     defaultDate={new Date(2015, 3, 1)}
                     onView={this.onCalenderViewChange.bind(this)}
                     onSelectEvent={event => alert(event.title)}
+                    style={calenderStyle}
                   />
                  </MediaQuery>
 
@@ -177,6 +189,7 @@ export default class car extends React.Component {
                      toolbar={true}
                      defaultDate={new Date(2015, 3, 1)}
                      onSelectEvent={event => alert(event.title)}
+                     style={calenderStyle}
                    />
                  </MediaQuery>
 
@@ -187,7 +200,7 @@ export default class car extends React.Component {
                   height="450"
                   frameBorder="0"
                   src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDX44F0oIpZP6D8E5IC98dQzMF3NNSBEXA
-                    &q=Space+Needle,Seattle+WA" allowFullScreen>
+                    &q=UniversityOfCalgary" allowFullScreen>
                 </iframe>
               </Tab>
             </Tabs>

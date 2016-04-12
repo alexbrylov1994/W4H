@@ -124,10 +124,10 @@ export default class SearchBar extends React.Component {
     var searchInputPhoneStyleModal = {
       borderStyle: 'non',
       paddingLeft: '7%',
-      paddingRight: '50%',
+      paddingRight: '0%',
       paddingBottom: '10px',
       // backgroundColor: '#90EE90',
-      width: '85%'
+      width: '100%'
     };
     var rowStyle = {
       paddingLeft: '1.5%'
@@ -176,7 +176,6 @@ export default class SearchBar extends React.Component {
               placeholder="search Cars"
               value={this.state.searchString}
               onClick={this.onSearchInputFocus.bind(this)}
-
             />
             <span className="input-group-btn">
               <button className="btn btn-default" type="button">Search</button>
@@ -259,9 +258,13 @@ export default class SearchBar extends React.Component {
             </Modal.Header>
             <Modal.Body>
               <Grid>
-                <Row>
-                  <TextField hintText="search" style={searchInputPhoneStyleModal}
-                     onChange={this.onChange.bind(this)} value={this.state.searchString} style={searchInputPhoneStyleModal}
+                <Row style={searchInputPhoneStyleModal}>
+
+                 <input type="text" className="form-control"
+                   onChange={this.onChange.bind(this)}
+                   placeholder="search Cars"
+                   value={this.state.searchString}
+                   onClick={this.onSearchInputFocus.bind(this)}
                  />
                 </Row>
                 <br />

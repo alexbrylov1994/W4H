@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react';
 import {Image, Thumbnail, Button} from 'react-bootstrap';
 import { LoginLink, LogoutLink, NotAuthenticated, Authenticated } from 'react-stormpath';
 import StarRating from 'react-star-rating';
-
+import { browserHistory } from 'react-router';
 
 var starStyle = {
   width: '5%',
@@ -27,7 +27,11 @@ export default class Car extends React.Component {
     }else{
       this.setState({ bookmarked: true});
     }
+  }
 
+  viewDetailsHandler(e){
+    console.log('viewDetailsHandler is called');
+    //browserHistory.push('/carDetails');
   }
 
   render() {
@@ -36,7 +40,7 @@ export default class Car extends React.Component {
     var bookmarkButtonStyle =  this.state.bookmarked ? 'danger' : 'default';
 
     return (
-         <Thumbnail src="http://www.extremetech.com/wp-content/uploads/2015/04/inter-IP.jpg"
+         <Thumbnail src="https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg"
           alt="242x200">
 
           <StarRating name="w4hire"
@@ -54,9 +58,11 @@ export default class Car extends React.Component {
 
            <Authenticated>
              <p>
-               <Button bsSize="small" bsStyle="info">View Details</Button>&nbsp;
+               <Link to="/carDetails" target="_blank">
+                 <Button bsSize="small" bsStyle="info" onClick={this.viewDetailsHandler.bind(this)}>View Details</Button>&nbsp;
+               </Link>
+
                <Button onClick={this.bookmarkButtonHandler.bind(this)} bsSize="small" bsStyle={bookmarkButtonStyle} > {bookmarkButtonText}
-                 <span className="glyphicon glyphicon-plus" aria-hidden="true"></span>
 
                </Button>&nbsp;
 
@@ -64,9 +70,11 @@ export default class Car extends React.Component {
           </Authenticated>
 
           <NotAuthenticated>
-            <p>
-              <Button bsSize="small" bsStyle="info">View Details</Button>&nbsp;
-            </p>
+            <Link to="/carDetails" target="_blank">
+              <Button bsSize="small" bsStyle="info" onClick={this.viewDetailsHandler.bind(this)}>View Details</Button>&nbsp;
+            </Link>
+
+
          </NotAuthenticated>
          </Thumbnail>
     );
