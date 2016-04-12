@@ -52,8 +52,9 @@ export default class carList extends React.Component {
     padding: '10px 16px',
     fontSize: '24px',
     lineHeight: '1.33',
-    borderRadius: '35px'
-  }
+    borderRadius: '35px',
+    marginLeft: '85%'
+  };
 
 
     return (
@@ -68,10 +69,8 @@ export default class carList extends React.Component {
           </div>
 
 
-        <div className="row">
-        <Col xsOffset={10}>
+        <div>
           <Button bsSize="large" bsStyle="info" style={btnlg} align="right" ><Glyphicon glyph="plus"/></Button>
-        </Col>
         </div>
 
         <div className="container-fluid">
