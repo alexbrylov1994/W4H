@@ -31,7 +31,7 @@ export default class carList extends React.Component {
   var tnailStyle=
   {
     width: '85%',
-    align:'center'
+    marginLeft: '7%'
   };
 
   var btn =
@@ -45,6 +45,11 @@ export default class carList extends React.Component {
       borderRadius: '35px',
     };
 
+    var padStyle=
+    {
+      paddingTop:'15px'
+    };
+    
   var btnlg=
   {
     width: '70px',
@@ -72,6 +77,8 @@ export default class carList extends React.Component {
         <div>
           <Button bsSize="large" bsStyle="info" style={btnlg} align="right" ><Glyphicon glyph="plus"/></Button>
         </div>
+
+        <div style={padStyle}></div>
 
         <div className="container-fluid">
         <Thumbnail style={tnailStyle}>
