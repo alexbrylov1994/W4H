@@ -30,9 +30,30 @@ export default class carList extends React.Component {
 
   var tnailStyle=
   {
-    width: '90%',
+    width: '85%',
     align:'center'
   };
+
+  var btn =
+    {
+      width: '50px',
+      height: '50px',
+      textAlign: 'center',
+      padding: '10px 16px',
+      fontSize: '18px',
+      lineHeight: '1.33',
+      borderRadius: '35px',
+    };
+
+  var btnlg=
+  {
+    width: '70px',
+    height: '70px',
+    padding: '10px 16px',
+    fontSize: '24px',
+    lineHeight: '1.33',
+    borderRadius: '35px'
+  }
 
 
     return (
@@ -46,8 +67,11 @@ export default class carList extends React.Component {
             </div>
           </div>
 
-        <div>
-        <Button bsSize="large"><Glyphicon glyph="plus"/>Add</Button>
+
+        <div className="row">
+        <Col xsOffset={10}>
+          <Button bsSize="large" bsStyle="info" style={btnlg} align="right" ><Glyphicon glyph="plus"/></Button>
+        </Col>
         </div>
 
         <div className="container-fluid">
