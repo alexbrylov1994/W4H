@@ -46,6 +46,7 @@ export default class SearchResult extends React.Component {
   }
 
   componentDidMount() {
+    console.log('CDM is called');
     HomePageStore.listen(this.onQueryChange);
     HomePageActions.updateQuery("");
   }
@@ -55,19 +56,16 @@ export default class SearchResult extends React.Component {
   }
 
   onQueryChange(query){
-    console.log('onQueryChange is called with query ' + JSON.stringify(query))
-    this.setState(query.query)
+    this.setState({state: query.query})
   }
 
   onCarDetailModeChange()
   {
-    console.log('viewDetailsHandler is called2');
     this.props.showCarDetailsModeCallBack();
   }
 
   onPageSelect(event, selectedEvent)
   {
-    console.log('activePage == ' + selectedEvent.eventKey);
     this.setState({
      activePage: selectedEvent.eventKey
     });
@@ -116,7 +114,6 @@ export default class SearchResult extends React.Component {
      }
 
     let numberOfPages = cars.length/noOfCarsInPage
-    console.log('length of cars == ' + numberOfPages)
 
     if(numberOfPages > 1)
        {
@@ -127,7 +124,6 @@ export default class SearchResult extends React.Component {
 
     let onCarClickedCallBack = this.props.showCarDetailsModeCallBack;
     if(this.props.showCarDetailsMode == false){
-      console.log('Showing the normal mode');
       return(
         <div>
           <CarsList cars={thisPageCars} onCarClicked={onCarClickedCallBack}></CarsList>
@@ -149,7 +145,6 @@ export default class SearchResult extends React.Component {
       );
     }
     else{
-      console.log('Showing the car details mode');
       return(
         <div>
           <div style={backBtnStyle} >

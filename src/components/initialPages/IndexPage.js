@@ -1,5 +1,6 @@
 import { Link } from 'react-router';
 import React, { PropTypes } from 'react';
+import ReactDOM from 'react-dom';
 import DocumentTitle from 'react-document-title';
 import { LoginLink } from 'react-stormpath';
 import {DropdownButton, MenuItem, Image, Grid, Thumbnail, Row, Col, Button} from 'react-bootstrap';
@@ -101,6 +102,11 @@ var searchBarPadding = {
 };
 
 
+var windowPosition ={
+  xPos: window.screenX,
+  yPos: window.screenY,
+  scrollHeight: 0
+};
 
 export default class IndexPage extends React.Component {
 
@@ -108,14 +114,35 @@ export default class IndexPage extends React.Component {
   {
     super(props);
     this.state =  {
-      showCarDetailsMode : false
+      showCarDetailsMode: false,
+      xPos: window.screenX,
+      yPos: window.screenY
     };
 
     this.toggleCarDetailsMode = this.toggleCarDetailsMode.bind(this);
   }
 
+  componentDidUpdate() {
+    console.log('componentDidUpdate for indexpage is called');
+    if(this.state.showCarDetailsMode == true){
+      //this.setState({xPos: window.screenX, yPos: window.screenY});
+      console.log('Window position == ' + window.screenX + " " + window.screenY +
+        " " + window.screenLeft + " " + window.screenTop);
+
+      console.log(" ?" + ReactDOM.findDOMNode(this).scrollHeight);
+      windowPosition.scrollHeight = ReactDOM.findDOMNode(this).scrollHeight;
+      console.log(" ?" + windowPosition.scrollHeight);
+
+      window.scrollTo(0, 0);
+    } else{
+      //console.log(" ?" + windowPosition.scrollHeight);
+      ReactDOM.findDOMNode(this).scrollTop = windowPosition.scrollHeight;
+      //window.scrollTo(this.state.xPos, this.state.yPos);
+    }
+  }
+
   toggleCarDetailsMode(){
-    console.log('viewDetailsHandler is called3');
+    //console.log('viewDetailsHandler is called3');
     this.setState({showCarDetailsMode: !this.state.showCarDetailsMode});
   }
 

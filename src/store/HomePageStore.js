@@ -18,7 +18,6 @@ class HomePageStore {
 
   handleUpdateQuery(data) {
     this.query = data;
-    console.log('updateQueryStore is called with query ' + JSON.stringify(this.query))
   }
 }
 

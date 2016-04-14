@@ -62,6 +62,7 @@ export default class car extends React.Component {
     };
   }
 
+
   bookmarkButtonHandler(e){
     e.preventDefault();
     if(  this.state.bookmarked){
@@ -72,7 +73,17 @@ export default class car extends React.Component {
   }
   onCalenderViewChange()
   {
+    
+  }
 
+  componentDidUpdate(){
+    console.log('componentDidUpdate1 for car details is called');
+  }
+
+  componentDidMount(){
+    console.log('componentDidMount1 for car details is called');
+    //this.getDomNode().scrollTop = 0;
+    window.scrollTo(0, 0);
   }
 
   render() {
