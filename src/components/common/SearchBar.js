@@ -1,7 +1,7 @@
 import { Link } from 'react-router';
 import React, { PropTypes } from 'react';
 
-import {DropdownButton, MenuItem, Image, Grid, Input,Thumbnail, Row, Col, Button, Collapse, Glyphicon} from 'react-bootstrap';
+import {DropdownButton, MenuItem, Image, Grid, Input,Thumbnail, Row, Col, Button, Collapse, Glyphicon, Carousel, CarouselItem} from 'react-bootstrap';
 
 import DateTimeField from 'react-bootstrap-datetimepicker';
 import ReactVideo from 'react-videojs';
@@ -26,6 +26,26 @@ import Dropdown from 'react-dropdown'
   model: "",
   price: "",
   showModal: true
+};
+
+var curosolStyle = {
+  borderRadius: '100px',
+  width: '100%',
+  height: '50%'
+};
+
+var picStyle =
+{
+  width: '80%',
+  height: '500px',
+  align: 'center',
+  margin: '0 auto'
+};
+
+var blackText = {
+  padding:'3% ',
+  borderRadius:'8px',
+  backgroundColor: 'rgba(0,0,0,0.35)'
 };
 
 var ModalBtnStyle = {
@@ -174,6 +194,37 @@ export default class SearchBar extends React.Component {
     console.log('Rerendering searchBar with searchString == ' + this.state.searchString)
     return <div style={divStyle}>
       <Grid >
+        <Row>
+          <div className="container-fluid">
+          <Carousel style={curosolStyle}>
+            <CarouselItem>
+              <img className="img-responsive" style={picStyle} alt="car" src="https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg"/>
+              <div style={blackText} className="carousel-caption">
+                <h3>Rent Car</h3>
+                <p>The ultimate place for renting cars and have a comfortable, affordable ride</p>
+              </div>
+
+            </CarouselItem>
+            <CarouselItem>
+              <img className="img-responsive" style={picStyle} alt="money" src="http://salesman.red/wp-content/uploads/2016/01/money-background-imagesearn-money-online-7a4zz8nx.jpg"/>
+              <div style={blackText}  className="carousel-caption">
+                <h3>Make Money</h3>
+                <p>This application allows you to make money with a minimum ammount of effort</p>
+              </div>
+            </CarouselItem>
+            <CarouselItem>
+              <img className="img-responsive" style={picStyle} alt="safety" src="http://www.adamsindustriesinc.com/wp-content/uploads/2016/02/safety-first2.jpg"/>
+              <div style={blackText}  className="carousel-caption">
+                <h3>Safety</h3>
+                <p>We got you covered. WE know, accidents happen, and we are there to make
+                sure you are safe!</p>
+              </div>
+            </CarouselItem>
+          </Carousel>
+        </div>
+        </Row>
+        <hr/>
+        <br />
         <Row>
           {
             /*
