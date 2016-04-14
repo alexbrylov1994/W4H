@@ -37,8 +37,7 @@ export default class SearchResult extends React.Component {
       make: "",
       model: "",
       price: "",
-      activePage: 1,
-      onCarDetailMode: false
+      activePage: 1
   };
 
     this.onQueryChange = this.onQueryChange.bind(this);
@@ -63,7 +62,7 @@ export default class SearchResult extends React.Component {
   onCarDetailModeChange()
   {
     console.log('viewDetailsHandler is called2');
-    this.setState({ onCarDetailMode: !this.state.onCarDetailMode});
+    this.props.showCarDetailsModeCallBack();
   }
 
   onPageSelect(event, selectedEvent)
@@ -125,12 +124,13 @@ export default class SearchResult extends React.Component {
        }
 
     let thisPageCars = this.getNextPage(this.state.activePage -1 , cars);
-    console.log("This page cars " + JSON.stringify(thisPageCars, null, "\t"))
 
-    if(this.state.onCarDetailMode == false){
+    let onCarClickedCallBack = this.props.showCarDetailsModeCallBack;
+    if(this.props.showCarDetailsMode == false){
+      console.log('Showing the normal mode');
       return(
         <div>
-          <CarsList cars={thisPageCars} onCarClicked={this.onCarDetailModeChange}></CarsList>
+          <CarsList cars={thisPageCars} onCarClicked={onCarClickedCallBack}></CarsList>
           <div >
           <Pagination style={paginationStyle}
             prev
@@ -149,8 +149,8 @@ export default class SearchResult extends React.Component {
       );
     }
     else{
+      console.log('Showing the car details mode');
       return(
-        //glyphicon glyphicon-menu-left
         <div>
           <div style={backBtnStyle} >
             <Button onClick={this.onCarDetailModeChange} >
