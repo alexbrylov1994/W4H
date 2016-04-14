@@ -135,7 +135,9 @@ export default class car extends React.Component {
       backgroundColor: '#3F5E68',
       color: "black"
     };
-
+    var inkBarStyle ={
+      background:'cyan'
+    };
     var bookmarkButtonText = this.state.bookmarked ? 'Remove bookmark ' : 'Bookmark ';
     var bookmarkButtonStyle =  this.state.bookmarked ? 'danger' : 'default';
 
@@ -159,7 +161,7 @@ export default class car extends React.Component {
 
         <Row style={divStyle}>
           <Col xs={12} >
-            <Tabs tabItemContainerStyle={Tabstyle}>
+            <Tabs tabItemContainerStyle={Tabstyle} inkBarStyle={inkBarStyle}>
               <Tab label="About">
                 <Grid style={tableStyle}>
                   <Row>

@@ -103,27 +103,71 @@ var searchBarPadding = {
 
 
 export default class IndexPage extends React.Component {
+
+  constructor(props)
+  {
+    super(props);
+    this.state =  {
+      showCarDetailsMode : false
+    };
+
+    this.toggleCarDetailsMode = this.toggleCarDetailsMode.bind(this);
+  }
+
+  toggleCarDetailsMode(){
+    console.log('viewDetailsHandler is called3');
+    this.setState({showCarDetailsMode: !this.state.showCarDetailsMode});
+  }
+
+
   render() {
-    return (
-      <div className="home-page-wrapper">
-          <div id="page-content-wrapper">
-              <div className="container-fluid">
-                <Grid >
-                  <Row>
-                    <Col xs={12} sm={12} md={12}>
-                      <SearchBar items={items}></SearchBar>
-                    </Col>
+    if(!this.state.showCarDetailsMode){
+      console.log('Showing the normal mode');
+      return (
+        <div className="home-page-wrapper">
+            <div id="page-content-wrapper">
+                <div className="container-fluid">
+                  <Grid >
+                    <Row>
+                      <Col xs={12} sm={12} md={12}>
+                        <SearchBar items={items}></SearchBar>
+                      </Col>
 
-                    <hr/>
+                      <hr/>
 
-                    <Col xs={12} sm={12} md={12}>
-                      <SearchResult items={items}></SearchResult>
-                    </Col>
-                  </Row>
-                </Grid>
-              </div>
+                      <Col xs={12} sm={12} md={12}>
+                        <SearchResult items={items}
+                          showCarDetailsMode={false}
+                          showCarDetailsModeCallBack={this.toggleCarDetailsMode}>
+                        </SearchResult>
+                      </Col>
+                    </Row>
+                  </Grid>
+                </div>
+            </div>
           </div>
-        </div>
-    );
+      );
+    }
+    else{
+      return (
+        <div className="home-page-wrapper">
+            <div id="page-content-wrapper">
+                <div className="container-fluid">
+                  <Grid >
+                    <Row>
+                      <Col xs={12} sm={12} md={12}>
+                        <SearchResult items={items}
+                          showCarDetailsMode={true}
+                          showCarDetailsModeCallBack={this.toggleCarDetailsMode}>
+                        </SearchResult>
+                      </Col>
+                    </Row>
+                  </Grid>
+                </div>
+            </div>
+          </div>
+      );
+    }
+
   }
 }

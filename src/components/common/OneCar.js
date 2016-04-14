@@ -23,7 +23,7 @@ export default class Car extends React.Component {
 
 
   bookmarkButtonHandler(e){
-    if(  this.state.bookmarked){
+    if(this.state.bookmarked){
       this.setState({ bookmarked: false});
     }else{
       this.setState({ bookmarked: true});
