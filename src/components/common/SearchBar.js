@@ -69,7 +69,7 @@ var dropDownMenuStyle = {
 }
 
 
-
+  var dropDownButtonStyle = 'primary';
 export default class SearchBar extends React.Component {
 
   constructor(props)
@@ -107,30 +107,35 @@ export default class SearchBar extends React.Component {
       query.category = "Car";
       HomePageActions.updateQuery(query);
       this.setState({ category: "Car"});
+      dropDownButtonStyle = "success";
     }
     if(href == 1.2){
       console.log('choosing the second category');
       query.category = "Truck";
       HomePageActions.updateQuery(query);
       this.setState({ category: "Truck"});
+        dropDownButtonStyle = "success";
     }
     if(href == 1.3){
       console.log('choosing the third category');
       query.category = "SUV";
       HomePageActions.updateQuery(query);
       this.setState({ category: "SUV"});
+        dropDownButtonStyle = "success";
     }
     if(href == 1.4){
       console.log('choosing the fourth category');
       query.category = "Utility";
       HomePageActions.updateQuery(query);
       this.setState({ category: "Utility"});
+        dropDownButtonStyle = "success";
     }
     if(href == 1.5){
       console.log('choosing the fifth category');
       query.category = "";
       HomePageActions.updateQuery(query);
       this.setState({ category: "All"});
+        dropDownButtonStyle = "primary";
     }
   }
 
@@ -254,7 +259,7 @@ export default class SearchBar extends React.Component {
         <MediaQuery query='(min-width: 700px)'>
            <Col xs={10} sm={12} md={6}>
                 <DropdownButton
-                  bsStyle="primary"
+                  bsStyle={dropDownButtonStyle}
                   style={ButtonMargin}
                   title={this.state.category}
                   id="bg-nested-dropdwon">

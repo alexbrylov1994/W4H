@@ -111,17 +111,11 @@ export default class IndexPage extends React.Component {
       showCarDetailsMode : false
     };
 
-    this.toggleCarDetailsMode = this.toggleCarDetailsMode.bind(this);
-  }
 
-  toggleCarDetailsMode(){
-    console.log('viewDetailsHandler is called3');
-    this.setState({showCarDetailsMode: !this.state.showCarDetailsMode});
   }
-
 
   render() {
-    if(!this.state.showCarDetailsMode){
+
       console.log('Showing the normal mode');
       return (
         <div className="home-page-wrapper">
@@ -136,10 +130,9 @@ export default class IndexPage extends React.Component {
                       <hr/>
 
                       <Col xs={12} sm={12} md={12}>
-                        <SearchResult items={items}
-                          showCarDetailsMode={false}
-                          showCarDetailsModeCallBack={this.toggleCarDetailsMode}>
-                        </SearchResult>
+                        <SearchResult items={items}></SearchResult>
+
+                    
                       </Col>
                     </Row>
                   </Grid>
@@ -147,27 +140,6 @@ export default class IndexPage extends React.Component {
             </div>
           </div>
       );
-    }
-    else{
-      return (
-        <div className="home-page-wrapper">
-            <div id="page-content-wrapper">
-                <div className="container-fluid">
-                  <Grid >
-                    <Row>
-                      <Col xs={12} sm={12} md={12}>
-                        <SearchResult items={items}
-                          showCarDetailsMode={true}
-                          showCarDetailsModeCallBack={this.toggleCarDetailsMode}>
-                        </SearchResult>
-                      </Col>
-                    </Row>
-                  </Grid>
-                </div>
-            </div>
-          </div>
-      );
-    }
 
   }
 }
