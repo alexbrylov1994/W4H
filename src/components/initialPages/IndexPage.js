@@ -102,54 +102,9 @@ var searchBarPadding = {
 };
 
 
-var windowPosition ={
-  xPos: window.screenX,
-  yPos: window.screenY,
-  scrollHeight: 0
-};
-
 export default class IndexPage extends React.Component {
 
-  constructor(props)
-  {
-    super(props);
-    this.state =  {
-      showCarDetailsMode: false,
-      xPos: window.screenX,
-      yPos: window.screenY
-    };
-
-    this.toggleCarDetailsMode = this.toggleCarDetailsMode.bind(this);
-  }
-
-  componentDidUpdate() {
-    console.log('componentDidUpdate for indexpage is called');
-    if(this.state.showCarDetailsMode == true){
-      //this.setState({xPos: window.screenX, yPos: window.screenY});
-      console.log('Window position == ' + window.screenX + " " + window.screenY +
-        " " + window.screenLeft + " " + window.screenTop);
-
-      console.log(" ?" + ReactDOM.findDOMNode(this).scrollHeight);
-      windowPosition.scrollHeight = ReactDOM.findDOMNode(this).scrollHeight;
-      console.log(" ?" + windowPosition.scrollHeight);
-
-      window.scrollTo(0, 0);
-    } else{
-      //console.log(" ?" + windowPosition.scrollHeight);
-      ReactDOM.findDOMNode(this).scrollTop = windowPosition.scrollHeight;
-      //window.scrollTo(this.state.xPos, this.state.yPos);
-    }
-  }
-
-  toggleCarDetailsMode(){
-    //console.log('viewDetailsHandler is called3');
-    this.setState({showCarDetailsMode: !this.state.showCarDetailsMode});
-  }
-
-
   render() {
-    if(!this.state.showCarDetailsMode){
-      console.log('Showing the normal mode');
       return (
         <div className="home-page-wrapper">
             <div id="page-content-wrapper">
@@ -163,9 +118,7 @@ export default class IndexPage extends React.Component {
                       <hr/>
 
                       <Col xs={12} sm={12} md={12}>
-                        <SearchResult items={items}
-                          showCarDetailsMode={false}
-                          showCarDetailsModeCallBack={this.toggleCarDetailsMode}>
+                        <SearchResult items={items}>
                         </SearchResult>
                       </Col>
                     </Row>
@@ -174,27 +127,5 @@ export default class IndexPage extends React.Component {
             </div>
           </div>
       );
-    }
-    else{
-      return (
-        <div className="home-page-wrapper">
-            <div id="page-content-wrapper">
-                <div className="container-fluid">
-                  <Grid >
-                    <Row>
-                      <Col xs={12} sm={12} md={12}>
-                        <SearchResult items={items}
-                          showCarDetailsMode={true}
-                          showCarDetailsModeCallBack={this.toggleCarDetailsMode}>
-                        </SearchResult>
-                      </Col>
-                    </Row>
-                  </Grid>
-                </div>
-            </div>
-          </div>
-      );
-    }
-
   }
 }

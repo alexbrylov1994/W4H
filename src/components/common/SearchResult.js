@@ -42,11 +42,9 @@ export default class SearchResult extends React.Component {
 
     this.onQueryChange = this.onQueryChange.bind(this);
     this.onPageSelect = this.onPageSelect.bind(this);
-    this.onCarDetailModeChange = this.onCarDetailModeChange.bind(this);
   }
 
   componentDidMount() {
-    console.log('CDM is called');
     HomePageStore.listen(this.onQueryChange);
     HomePageActions.updateQuery("");
   }
@@ -56,16 +54,14 @@ export default class SearchResult extends React.Component {
   }
 
   onQueryChange(query){
-    this.setState({state: query.query})
+    console.log('onQueryChange is called with query ' + JSON.stringify(query))
+    this.setState(query.query)
   }
 
-  onCarDetailModeChange()
-  {
-    this.props.showCarDetailsModeCallBack();
-  }
 
   onPageSelect(event, selectedEvent)
   {
+    console.log('activePage == ' + selectedEvent.eventKey);
     this.setState({
      activePage: selectedEvent.eventKey
     });
@@ -114,6 +110,7 @@ export default class SearchResult extends React.Component {
      }
 
     let numberOfPages = cars.length/noOfCarsInPage
+    console.log('length of cars == ' + numberOfPages)
 
     if(numberOfPages > 1)
        {
@@ -122,11 +119,10 @@ export default class SearchResult extends React.Component {
 
     let thisPageCars = this.getNextPage(this.state.activePage -1 , cars);
 
-    let onCarClickedCallBack = this.props.showCarDetailsModeCallBack;
-    if(this.props.showCarDetailsMode == false){
+      console.log('Showing the normal mode');
       return(
         <div>
-          <CarsList cars={thisPageCars} onCarClicked={onCarClickedCallBack}></CarsList>
+          <CarsList cars={thisPageCars}></CarsList>
           <div >
           <Pagination style={paginationStyle}
             prev
@@ -143,21 +139,5 @@ export default class SearchResult extends React.Component {
         </div>
         </div>
       );
-    }
-    else{
-      return(
-        <div>
-          <div style={backBtnStyle} >
-            <Button onClick={this.onCarDetailModeChange} >
-               <Glyphicon glyph="glyphicon glyphicon-menu-left" />
-               Back to search Results
-            </Button>&nbsp;
-          </div>
-
-
-          <SelectedCar></SelectedCar>
-        </div>
-      );
-    }
   }
 }

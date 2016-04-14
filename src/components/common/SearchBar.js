@@ -28,17 +28,14 @@ import Dropdown from 'react-dropdown'
   showModal: true
 };
 
-var curosolStyle = {
-  borderRadius: '100px',
+var carouselStyle = {
   width: '100%',
-  height: '50%'
+  maxHeight: '400px'
 };
 
 var picStyle =
 {
-  width: '80%',
-  height: '500px',
-  align: 'center',
+  maxHeight: '400px',
   margin: '0 auto'
 };
 
@@ -48,10 +45,30 @@ var blackText = {
   backgroundColor: 'rgba(0,0,0,0.35)'
 };
 
-var ModalBtnStyle = {
-    paddingLeft: '10%',
-    width: '100%'
+var divStyle = {
+  paddingLeft: '0px',
+  paddingBottom: '30px',
+  paddingTop: '15px'
 };
+var searBharStyle = {
+  paddingBottom: '15px',
+};
+
+var rowStyle = {
+  paddingLeft: '17px'
+};
+
+var ButtonMargin = {
+  margin: '0 5px'
+};
+
+var dropDownMenuStyle = {
+  width: '100%',
+  paddingLeft: '17px',
+
+}
+
+
 
 export default class SearchBar extends React.Component {
 
@@ -59,17 +76,30 @@ export default class SearchBar extends React.Component {
   {
     super(props);
     this.state =  {
-      searchString: "",
-      category: "Category",
-      make: "Make",
-      model: "Model",
-      price: "Price",
-      showModal: false,
+      searchString: (sessionStorage.getItem('searchString') == null) ? "" :sessionStorage.getItem('searchString'),
+      category: (sessionStorage.getItem('category') == null) ? "Category" :sessionStorage.getItem('category'),
+      make: (sessionStorage.getItem('make') == null) ? "Make" :sessionStorage.getItem('make'),
+      model: (sessionStorage.getItem('model') == null) ? "Model" :sessionStorage.getItem('model'),
+      price: (sessionStorage.getItem('price') == null) ? "Price" :sessionStorage.getItem('price'),
 
-      showDropdown: false,
-      glyph: "glyphicon glyphicon-menu-down",
-      advancedFiltersOpen: false
+      showDropdown: (sessionStorage.getItem('showDropdown') == null) ? false :sessionStorage.getItem('showDropdown'),
+      glyph: (sessionStorage.getItem('glyph') == null) ? "glyphicon glyphicon-menu-down" :sessionStorage.getItem('glyph'),
+      advancedFiltersOpen: (sessionStorage.getItem('advancedFiltersOpen') == null) ? false :sessionStorage.getItem('advancedFiltersOpen'),
     };
+
+  }
+
+  componentDidUpdate()
+  {
+    //update the sessionStorage
+    sessionStorage.setItem('searchString', this.state.searchString);
+    sessionStorage.setItem('category', this.state.category);
+    sessionStorage.setItem('make', this.state.make);
+    sessionStorage.setItem('model', this.state.model);
+    sessionStorage.setItem('price', this.state.price);
+    sessionStorage.setItem('showDropdown', this.state.showDropdown);
+    sessionStorage.setItem('glyph', this.state.glyph);
+    sessionStorage.setItem('advancedFiltersOpen', this.state.advancedFiltersOpen);
   }
 
   onChange(event)
@@ -147,46 +177,6 @@ export default class SearchBar extends React.Component {
   }
 
   render() {
-    var divStyle = {
-      paddingLeft: '0px',
-      paddingBottom: '30px',
-      paddingTop: '15px'
-    };
-    var searBharStyle = {
-      paddingBottom: '15px',
-    };
-    var searchInputPhoneStyle = {
-      borderStyle: 'non',
-      paddingLeft: '0%',
-      backgroundColor: '',
-      width: '100%'
-    };
-    var searchInputPhoneStyleModal = {
-      borderStyle: 'non',
-      paddingLeft: '7%',
-      paddingRight: '0%',
-      paddingBottom: '10px',
-      // backgroundColor: '#90EE90',
-      width: '100%'
-    };
-    var rowStyle = {
-      paddingLeft: '17px'
-    };
-
-    var DropdownMenuStyle = {
-        paddingLeft: '0%',
-        width: '100%'
-    };
-    var ButtonMargin = {
-      margin: '0 5px'
-    };
-    let close = () => this.setState({ showModal: false});
-
-    let dropDownMenuStyle = {
-      minWidth: '100%',
-      width: '100%',
-      paddingLeft: '17px'
-    }
 
 
     const innerGlyphicon = <Button onClick={this.toggleSearchFilters.bind(this)}><Glyphicon glyph={this.state.glyph} /></Button>
@@ -196,9 +186,11 @@ export default class SearchBar extends React.Component {
       <Grid >
         <Row>
           <div className="container-fluid">
-          <Carousel style={curosolStyle}>
+          <Carousel style={carouselStyle}>
             <CarouselItem>
+              <div>
               <img className="img-responsive" style={picStyle} alt="car" src="https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg"/>
+              </div>
               <div style={blackText} className="carousel-caption">
                 <h3>Rent Car</h3>
                 <p>The ultimate place for renting cars and have a comfortable, affordable ride</p>
@@ -330,36 +322,32 @@ export default class SearchBar extends React.Component {
         }
         <MediaQuery query='(max-width: 700px)'>
           <Collapse in={this.state.advancedFiltersOpen}>
-            <Grid>
-              <Row style={dropDownMenuStyle}>
-                <DropdownButton
+            <Grid className="fullWidthDropdown">
+              <Row style={dropDownMenuStyle} >
+
+                <DropdownButton style={dropDownMenuStyle}
                   bsStyle="primary"
                   title={this.state.category}
                   id="bg-nested-dropdwon">
 
-                    <MenuItem eventKey={1.1} href="#" onSelect={this.onSelect.bind(this)}>Cars</MenuItem>
+                    <MenuItem  eventKey={1.1} href="#" onSelect={this.onSelect.bind(this)}>Cars</MenuItem>
                     <MenuItem eventKey={1.2} href="#" onSelect={this.onSelect.bind(this)}>Trucks</MenuItem>
-                    <MenuItem eventKey={1.3} href="#" onSelect={this.onSelect.bind(this)}>SUVS</MenuItem>
-                    <MenuItem eventKey={1.4} href="#" onSelect={this.onSelect.bind(this)}>Utility</MenuItem>
-                    <MenuItem eventKey={1.5} href="#" onSelect={this.onSelect.bind(this)}>All</MenuItem>
+                    <MenuItem  eventKey={1.3} href="#" onSelect={this.onSelect.bind(this)}>SUVS</MenuItem>
+                    <MenuItem  eventKey={1.4} href="#" onSelect={this.onSelect.bind(this)}>Utility</MenuItem>
+                    <MenuItem  eventKey={1.5} href="#" onSelect={this.onSelect.bind(this)}>All</MenuItem>
                 </DropdownButton>
-                <div className="input-group">
-                  <span className="input-group-btn">
-                  </span>
-                </div>
+
               </Row>
               <br />
 
               <Row style={dropDownMenuStyle}>
-                <div className="input-group">
+
                   <DropdownButton  block bsStyle="primary" style={dropDownMenuStyle} title="Make" id="bg-nested-dropdwon">
                     <MenuItem style={dropDownMenuStyle} eventKey={2.1} href="#" onSelect={this.onSelect.bind(this)}>Acura</MenuItem>
                     <MenuItem style={dropDownMenuStyle} eventKey={2.2} href="#" onSelect={this.onSelect.bind(this)}>Mclaren</MenuItem>
                     <MenuItem style={dropDownMenuStyle} eventKey={2.3} href="#" onSelect={this.onSelect.bind(this)}>Lambo</MenuItem>
                   </DropdownButton>
-                  <span className="input-group-btn">
-                  </span>
-                </div>
+
               </Row>
               <br />
 
