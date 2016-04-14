@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { IndexRoute, Route } from 'react-router';
+import { IndexRoute, Route} from 'react-router';
 import createBrowserHistory from 'history/lib/createBrowserHistory';
 import ReactStormpath, { Router, HomeRoute, LoginRoute, AuthenticatedRoute } from 'react-stormpath';
 import { LoginPage, RegisterPage, ResetPasswordPage, VerifyEmailPage, ProfilePage } from './components/authentication';
-import { MasterPage, carDetails, IndexPage, aboutPage, myBookmarks, myGarage } from './components/initialPages';
+import { MasterPage, carDetails, IndexPage, aboutPage, myBookmarks, myGarage} from './components/initialPages';
+//import SelectedCar from './components/common';
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();

@@ -44,15 +44,10 @@ import {DropdownButton, MenuItem, Image, Grid, Thumbnail, Row, Col, Button, Moda
 import ImageGallery from 'react-image-gallery';
 var ImageSlider = require('react-slick');
 
-function initMap() {
-     var mapDiv = document.getElementById('map');
-     var map = new google.maps.Map(mapDiv, {
-       center: {lat: 44.540, lng: -78.546},
-       zoom: 8
-     });
-}
+
 
 export default class car extends React.Component {
+
 
   constructor(props)
   {
@@ -60,6 +55,12 @@ export default class car extends React.Component {
     this.state =  {
       bookmarked : false
     };
+
+    this.goToSearchResults = this.goToSearchResults.bind(this);
+  }
+
+  componentDidMount(){
+    window.scrollTo(0, 0)
   }
 
   bookmarkButtonHandler(e){
@@ -70,9 +71,15 @@ export default class car extends React.Component {
       this.setState({ bookmarked: true});
     }
   }
+
   onCalenderViewChange()
   {
 
+  }
+
+  goToSearchResults()
+  {
+    window.history.back()
   }
 
   render() {
@@ -135,122 +142,139 @@ export default class car extends React.Component {
       backgroundColor: '#3F5E68',
       color: "black"
     };
-    var inkBarStyle ={
-      background:'cyan'
-    };
+
     var bookmarkButtonText = this.state.bookmarked ? 'Remove bookmark ' : 'Bookmark ';
     var bookmarkButtonStyle =  this.state.bookmarked ? 'danger' : 'default';
 
+    var backBtnStyle = {
+        paddingLeft: '1.5%',
+        paddingBottom: '2%'
+      };
     return (
-      <Grid>
-        <Row style={divStyleR1}>
-          <Col xs={12} style={carSliderStyle}>
-          <div style={carSliderStyle}>
-            	<ImageSlider {...settings}>
-                <img src='https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg' />
-                <img src='https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg' />
-                <img src='https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg' />
-                <img src='https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg' />
-                <img src='https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg' />
-                <img src='https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg' />
-                <img src='https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg' />
-            </ImageSlider>
-            </div>
-          </Col>
-        </Row>
+          <Grid>
+            <Row>
+              <div style={backBtnStyle} >
+                <Button onClick={this.goToSearchResults} >
+                   <Glyphicon glyph="glyphicon glyphicon-menu-left" />
+                   Back to search Results
+                </Button>&nbsp;
+              </div>
+            </Row>
 
-        <Row style={divStyle}>
-          <Col xs={12} >
-            <Tabs tabItemContainerStyle={Tabstyle} inkBarStyle={inkBarStyle}>
-              <Tab label="About">
-                <Grid style={tableStyle}>
-                  <Row>
-                    <Col>
-                      <table className="table">
-                          <tbody>
-                            <tr>
-                              <td>Owner</td>
-                              <td>Someone</td>
-                            </tr>
-                            <tr>
-                              <td>Make</td>
-                              <td>Sedan</td>
-                            </tr>
-                            <tr>
-                              <td>Model</td>
-                              <td>Jaguar</td>
-                            </tr>
-                            <tr>
-                              <td>Trim</td>
-                              <td>XF</td>
-                            </tr>
-                            <tr>
-                              <td>Rate $/hr</td>
-                              <td>20</td>
-                            </tr>
-                          </tbody>
-                      </table>
-                    </Col>
-                  </Row>
-                </Grid>
-              </Tab>
-              <Tab label="Availability" >
+            <Row style={divStyleR1}>
+            <Col xs={12} style={carSliderStyle}>
+            <div style={carSliderStyle}>
+                <ImageSlider {...settings}>
+                  <img src='https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg' />
+                  <img src='https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg' />
+                  <img src='https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg' />
+                  <img src='https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg' />
+                  <img src='https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg' />
+                  <img src='https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg' />
+                  <img src='https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg' />
+              </ImageSlider>
+              </div>
+            </Col>
+            </Row>
 
-                <MediaQuery query='(min-width: 700px)'>
-                  <BigCalendar
-                    popup
-                    events={events}
-                    view='week'
-                    views={['week', 'day']}
-                    toolbar={true}
-                    defaultDate={new Date(2015, 3, 1)}
-                    onView={this.onCalenderViewChange.bind(this)}
-                    onSelectEvent={event => alert(event.title)}
-                    style={calenderStyle}
-                  />
-                 </MediaQuery>
+            <Row style={divStyle}>
+              <Col xs={12} >
+                <Tabs tabItemContainerStyle={Tabstyle}>
+                  <Tab label="About">
+                    <Grid style={tableStyle}>
+                      <Row>
+                        <Col>
+                          <table className="table">
+                              <tbody>
+                                <tr>
+                                  <td>Owner</td>
+                                  <td>Someone</td>
+                                </tr>
+                                <tr>
+                                  <td>Make</td>
+                                  <td>Sedan</td>
+                                </tr>
+                                <tr>
+                                  <td>Model</td>
+                                  <td>Jaguar</td>
+                                </tr>
+                                <tr>
+                                  <td>Trim</td>
+                                  <td>XF</td>
+                                </tr>
+                                <tr>
+                                  <td>Rate $/hr</td>
+                                  <td>20</td>
+                                </tr>
+                              </tbody>
+                          </table>
+                        </Col>
+                      </Row>
+                    </Grid>
+                  </Tab>
 
-                 <MediaQuery query='(max-width: 700px)'>
-                   <BigCalendar
-                     popup
-                     events={events}
-                     view='day'
-                     views={['week', 'day']}
-                     onView={this.onCalenderViewChange.bind(this)}
-                     toolbar={true}
-                     defaultDate={new Date(2015, 3, 1)}
-                     onSelectEvent={event => alert(event.title)}
-                     style={calenderStyle}
-                   />
-                 </MediaQuery>
+                  <Tab label="Availability" >
 
-              </Tab>
-              <Tab label="Map">
-                <iframe
-                  width="100%"
-                  height="450"
-                  frameBorder="0"
-                  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDX44F0oIpZP6D8E5IC98dQzMF3NNSBEXA
-                    &q=UniversityOfCalgary" allowFullScreen>
-                </iframe>
-              </Tab>
-            </Tabs>
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={12}>
-            {/* Material UI button
-            <RaisedButton label="Send Request" primary={true} style={ActionBtnsStyle} />
-            <RaisedButton label="Bookmark" primary={true} style={ActionBtnsStyle} />
-            */}
-            <Button  bsStyle="success" > Send Request
-            </Button>&nbsp;
+                    <MediaQuery query='(min-width: 700px)'>
+                      <BigCalendar
+                        popup
+                        events={events}
+                        view='week'
+                        views={['week', 'day']}
+                        toolbar={true}
+                        defaultDate={new Date(2015, 3, 1)}
+                        onView={this.onCalenderViewChange.bind(this)}
+                        onSelectEvent={event => alert(event.title)}
+                        style={calenderStyle}
+                      />
+                     </MediaQuery>
 
-            <Button onClick={this.bookmarkButtonHandler.bind(this)} bsStyle={bookmarkButtonStyle} > <Glyphicon glyph="bookmark" />  {bookmarkButtonText}
-            </Button>&nbsp;
-          </Col>
-        </Row>
-      </Grid>
+                     <MediaQuery query='(max-width: 700px)'>
+                       <BigCalendar
+                         popup
+                         events={events}
+                         view='day'
+                         views={['week', 'day']}
+                         onView={this.onCalenderViewChange.bind(this)}
+                         toolbar={true}
+                         defaultDate={new Date(2015, 3, 1)}
+                         onSelectEvent={event => alert(event.title)}
+                         style={calenderStyle}
+                       />
+                     </MediaQuery>
+
+                  </Tab>
+                  <Tab label="Map">
+                    <iframe
+                      width="100%"
+                      height="450"
+                      frameBorder="0"
+                      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDX44F0oIpZP6D8E5IC98dQzMF3NNSBEXA
+                        &q=UniversityOfCalgary" allowFullScreen>
+                    </iframe>
+                  </Tab>
+                </Tabs>
+              </Col>
+            </Row>
+            <hr/>
+            <Row>
+              <Col xs={12}>
+                {/* Material UI button
+                <RaisedButton label="Send Request" primary={true} style={ActionBtnsStyle} />
+                <RaisedButton label="Bookmark" primary={true} style={ActionBtnsStyle} />
+                */}
+                <Button  bsStyle="success" > Send Request
+                </Button>&nbsp;
+
+                <Button onClick={this.bookmarkButtonHandler.bind(this)} bsStyle={bookmarkButtonStyle} > <Glyphicon glyph="bookmark" />  {bookmarkButtonText}
+                </Button>&nbsp;
+              </Col>
+            </Row>
+
+            <Row>
+              <hr/>
+            </Row>
+          </Grid>
     );
   }
 }

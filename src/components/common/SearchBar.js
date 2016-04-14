@@ -76,17 +76,30 @@ export default class SearchBar extends React.Component {
   {
     super(props);
     this.state =  {
-      searchString: "",
-      category: "Category",
-      make: "Make",
-      model: "Model",
-      price: "Price",
-      showModal: false,
+      searchString: (sessionStorage.getItem('searchString') == null) ? "" :sessionStorage.getItem('searchString'),
+      category: (sessionStorage.getItem('category') == null) ? "Category" :sessionStorage.getItem('category'),
+      make: (sessionStorage.getItem('make') == null) ? "Make" :sessionStorage.getItem('make'),
+      model: (sessionStorage.getItem('model') == null) ? "Model" :sessionStorage.getItem('model'),
+      price: (sessionStorage.getItem('price') == null) ? "Price" :sessionStorage.getItem('price'),
 
-      showDropdown: false,
-      glyph: "glyphicon glyphicon-menu-down",
-      advancedFiltersOpen: false
+      showDropdown: (sessionStorage.getItem('showDropdown') == null) ? false :sessionStorage.getItem('showDropdown'),
+      glyph: (sessionStorage.getItem('glyph') == null) ? "glyphicon glyphicon-menu-down" :sessionStorage.getItem('glyph'),
+      advancedFiltersOpen: (sessionStorage.getItem('advancedFiltersOpen') == null) ? false :sessionStorage.getItem('advancedFiltersOpen'),
     };
+
+  }
+
+  componentDidUpdate()
+  {
+    //update the sessionStorage
+    sessionStorage.setItem('searchString', this.state.searchString);
+    sessionStorage.setItem('category', this.state.category);
+    sessionStorage.setItem('make', this.state.make);
+    sessionStorage.setItem('model', this.state.model);
+    sessionStorage.setItem('price', this.state.price);
+    sessionStorage.setItem('showDropdown', this.state.showDropdown);
+    sessionStorage.setItem('glyph', this.state.glyph);
+    sessionStorage.setItem('advancedFiltersOpen', this.state.advancedFiltersOpen);
   }
 
   onChange(event)

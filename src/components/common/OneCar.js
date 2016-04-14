@@ -1,10 +1,10 @@
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 import React, { PropTypes } from 'react';
 import {Image, Thumbnail, Button, Glyphicon} from 'react-bootstrap';
 import { LoginLink, LogoutLink, NotAuthenticated, Authenticated } from 'react-stormpath';
 import StarRating from 'react-star-rating';
-import { browserHistory } from 'react-router';
 import MediaQuery from 'react-responsive';
+
 
 var starStyle = {
   width: '5%',
@@ -30,11 +30,6 @@ export default class OneCar extends React.Component {
     }
   }
 
-  viewDetailsHandler(e){
-    console.log('viewDetailsHandler is called');
-    this.props.onCarClicked();
-  }
-
   render() {
 
     var bookmarkButtonText = this.state.bookmarked ? 'Remove bookmark ' : 'Bookmark ';
@@ -42,86 +37,50 @@ export default class OneCar extends React.Component {
 
     return (
          <div>
-           <MediaQuery query='(min-width: 700px)'>
-             <Thumbnail src="https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg"
-              alt="242x200">
+           <Thumbnail src="https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg"
+            alt="242x200">
 
-              <StarRating name="w4hire"
-                ratingAmount={5}
-                rating={5}
-                editing={false}
-                size={20}
-                >
-              </StarRating>
+            <StarRating name="w4hire"
+              ratingAmount={5}
+              rating={5}
+              editing={false}
+              size={20}
+              >
+            </StarRating>
+             <p>
+                <h4>{this.props.carName}</h4>
+                <h4>{this.props.price}/hr</h4>
+             </p>
+             <Authenticated>
                <p>
-                  <h4>{this.props.carName}</h4>
-                  <h4>{this.props.price}/hr</h4>
-               </p>
-               <Authenticated>
-                 <p>
+                 <Link to="/carDetails">
                    <Button
                        bsSize="small"
-                       bsStyle="info"
-                       onClick={this.viewDetailsHandler.bind(this)}>
+                       bsStyle="info">
                        <Glyphicon glyph="eye-open"/> View Details
                     </Button>&nbsp;
-
-                   <Button onClick={this.bookmarkButtonHandler.bind(this)} bsSize="small" bsStyle={bookmarkButtonStyle}> <Glyphicon glyph="bookmark" />   {bookmarkButtonText}
-                   </Button>&nbsp;
-                 </p>
-              </Authenticated>
-
-              <NotAuthenticated>
-                  <Button
-                    bsSize="small"
-                    bsStyle="info"
-                    onClick={this.viewDetailsHandler.bind(this)}>
-                    <Glyphicon glyph="eye-open"/> View Details
-                   </Button>&nbsp;
-             </NotAuthenticated>
-             </Thumbnail>
-           </MediaQuery>
+                 </Link>
 
 
-           <MediaQuery query='(max-width: 700px)'>
-             <Thumbnail src="https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg"
-              alt="242x200">
-
-              <StarRating name="w4hire"
-                ratingAmount={5}
-                rating={5}
-                editing={false}
-                size={20}
-                >
-              </StarRating>
-               <p>
-                  <h4>{this.props.carName}</h4>
-                  <h4>{this.props.price}/hr</h4>
+                 <Button onClick={this.bookmarkButtonHandler.bind(this)}
+                        bsSize="small"
+                        bsStyle={bookmarkButtonStyle}> <Glyphicon glyph="bookmark" />
+                      {bookmarkButtonText}
+                 </Button>&nbsp;
                </p>
-               <Authenticated>
-                 <p>
-                   <Button
-                       bsSize="small"
-                       bsStyle="info"
-                       onClick={this.viewDetailsHandler.bind(this)}>
-                       <Glyphicon glyph="eye-open"/> View Details
-                    </Button>&nbsp;
+            </Authenticated>
 
-                   <Button onClick={this.bookmarkButtonHandler.bind(this)} bsSize="small" bsStyle={bookmarkButtonStyle}> <Glyphicon glyph="bookmark" />   {bookmarkButtonText}
-                   </Button>&nbsp;
-                 </p>
-              </Authenticated>
-
-              <NotAuthenticated>
-                  <Button
+            <NotAuthenticated>
+              <Link to="/carDetails">                
+                <Button
                     bsSize="small"
                     bsStyle="info"
-                    onClick={this.viewDetailsHandler.bind(this)}>
+                    >
                     <Glyphicon glyph="eye-open"/> View Details
-                   </Button>&nbsp;
-             </NotAuthenticated>
-             </Thumbnail>
-           </MediaQuery>
+                 </Button>&nbsp;
+              </Link>
+           </NotAuthenticated>
+           </Thumbnail>
          </div>
     );
   }

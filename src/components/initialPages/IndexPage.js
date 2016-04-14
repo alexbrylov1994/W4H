@@ -1,5 +1,6 @@
 import { Link } from 'react-router';
 import React, { PropTypes } from 'react';
+import ReactDOM from 'react-dom';
 import DocumentTitle from 'react-document-title';
 import { LoginLink } from 'react-stormpath';
 import {DropdownButton, MenuItem, Image, Grid, Thumbnail, Row, Col, Button} from 'react-bootstrap';
@@ -101,22 +102,11 @@ var searchBarPadding = {
 };
 
 
-
 export default class IndexPage extends React.Component {
 
-  constructor(props)
-  {
-    super(props);
-    this.state =  {
-      showCarDetailsMode : false
-    };
-
-
-  }
 
   render() {
 
-      console.log('Showing the normal mode');
       return (
         <div className="home-page-wrapper">
             <div id="page-content-wrapper">
@@ -130,9 +120,10 @@ export default class IndexPage extends React.Component {
                       <hr/>
 
                       <Col xs={12} sm={12} md={12}>
-                        <SearchResult items={items}></SearchResult>
 
-                    
+                        <SearchResult items={items}>
+                        </SearchResult>
+
                       </Col>
                     </Row>
                   </Grid>
@@ -140,6 +131,5 @@ export default class IndexPage extends React.Component {
             </div>
           </div>
       );
-
   }
 }
