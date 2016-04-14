@@ -68,7 +68,6 @@ var dropDownMenuStyle = {
 
 }
 
-let close = () => this.setState({ showModal: false});
 
 
 export default class SearchBar extends React.Component {

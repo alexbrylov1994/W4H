@@ -15,18 +15,18 @@ export default class LoginPage extends React.Component {
     super(props);
     this.state =  {
       inLogin : "Login",
-      selectedTab: 1
+
     };
   }
 
   changeText(e){
       if(e == 1){
         this.setState({inLogin: "Login"});
-        this.setState({selectedTab: 1});
+
       }
       if(e == 2){
         this.setState({inLogin: "Register"});
-        this.setState({selectedTab: 2});
+
       }
   }
 
@@ -61,7 +61,7 @@ export default class LoginPage extends React.Component {
             </div>
             </div>
 
-            <Tabs value={this.state.selectedTab}
+            <Tabs
               onChange={this.changeText.bind(this)}
               tabItemContainerStyle={Tabstyle}
               inkBarStyle={inkBarStyle}>
