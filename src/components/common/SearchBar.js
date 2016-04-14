@@ -2,6 +2,7 @@ import { Link } from 'react-router';
 import React, { PropTypes } from 'react';
 
 import {DropdownButton, MenuItem, Image, Grid, Input,Thumbnail, Row, Col, Button, Collapse, Glyphicon} from 'react-bootstrap';
+
 import DateTimeField from 'react-bootstrap-datetimepicker';
 import ReactVideo from 'react-videojs';
 import MediaQuery from 'react-responsive';
@@ -15,6 +16,7 @@ import HomePageActions from './../../actions/HomePageActions';
 import Car from './Car';
 import CarsList from './CarsList';
 import UIDropdownMenu from './UIDropdownMenu';
+
 import Dropdown from 'react-dropdown'
 
  var query = {
@@ -43,6 +45,7 @@ export default class SearchBar extends React.Component {
       model: "Model",
       price: "Price",
       showModal: false,
+
       showDropdown: false,
       glyph: "glyphicon glyphicon-menu-down",
       advancedFiltersOpen: false
@@ -149,8 +152,9 @@ export default class SearchBar extends React.Component {
     var rowStyle = {
       paddingLeft: '17px'
     };
+
     var DropdownMenuStyle = {
-        paddingLeft: '17px',
+        paddingLeft: '0%',
         width: '100%'
     };
     var ButtonMargin = {
@@ -166,7 +170,6 @@ export default class SearchBar extends React.Component {
 
 
     const innerGlyphicon = <Button onClick={this.toggleSearchFilters.bind(this)}><Glyphicon glyph={this.state.glyph} /></Button>
-
 
     console.log('Rerendering searchBar with searchString == ' + this.state.searchString)
     return <div style={divStyle}>
@@ -207,8 +210,7 @@ export default class SearchBar extends React.Component {
             />
 
           <div className="input-group">
-            <span className="input-group-btn">
-            </span>
+            <span className="input-group-btn"></span>
           </div>
          </Col>
         </MediaQuery>
@@ -220,7 +222,6 @@ export default class SearchBar extends React.Component {
           */
         }
         <MediaQuery query='(min-width: 700px)'>
-
            <Col xs={10} sm={12} md={6}>
                 <DropdownButton
                   bsStyle="primary"

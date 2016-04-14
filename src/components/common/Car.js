@@ -9,11 +9,9 @@ export default class Car extends React.Component {
 
   render() {
     let onCarClicked = this.props.onCarClicked;
-
     return (
         <Grid>
           <Row>
-
             <Col xs={12} sm={6} md={3}>
               <OneCar carName={this.props.carName} price={this.props.price} onCarClicked={onCarClicked}/>
             </Col>

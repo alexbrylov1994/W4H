@@ -9,6 +9,7 @@ import HomePageActions from './../../actions/HomePageActions';
 import StarRatingComponent from 'react-star-rating-component';
 import SelectedCar from './SelectedCar';
 
+
 var noOfCarsInPage = 5;
 
 var divStyle = {
@@ -38,7 +39,7 @@ export default class SearchResult extends React.Component {
       price: "",
       activePage: 1,
       onCarDetailMode: false
-    };
+  };
 
     this.onQueryChange = this.onQueryChange.bind(this);
     this.onPageSelect = this.onPageSelect.bind(this);
