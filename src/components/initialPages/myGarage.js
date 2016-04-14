@@ -1,0 +1,239 @@
+import React from 'react';
+import DocumentTitle from 'react-document-title';
+import { UserProfileForm } from 'react-stormpath';
+import {Modal,Tabs, Tab, Thumbnail, Button, Glyphicon, Image,Row, Col,Grid, Input, ButtonInput, ButtonGroup} from 'react-bootstrap';
+import FloatingActionButton from 'material-ui/lib/floating-action-button';
+import ContentAdd from 'material-ui/lib/svg-icons/content/add';
+import MediaQuery from 'react-responsive';
+
+export default class myGarage extends React.Component {
+
+  constructor(props)
+    {
+      super(props);
+      this.state =  {
+
+        showModal: false
+
+      };
+    }
+
+  addCar(event){
+
+    this.setState({ showModal: true});
+  }
+
+  render() {
+
+  var buttonStyle =
+  {
+    width: '100px',
+    height: '40px',
+    background:'#bbb',
+    color: '#999'
+  };
+
+  var picStyle =
+  {
+    // width: '300px',
+    minHeight: '150px',
+     align: 'left'
+  };
+
+  var textStyle =
+  {
+    align:'right'
+  };
+
+  var tnailStyle=
+  {
+    width: '85%',
+      marginLeft: '7%',
+    align:'center'
+  };
+
+  var btn =
+    {
+      width: '50px',
+      height: '50px',
+      textAlign: 'center',
+      padding: '10px 16px',
+      fontSize: '18px',
+      lineHeight: '1.33',
+      borderRadius: '35px',
+    };
+
+    // <Button onClick={this.addCar.bind(this)} bsSize="large" bsStyle="info"
+    //  style={btnlg} ><Glyphicon glyph="plus"/></Button>
+
+  var btnlg=
+  {
+    width: '70px',
+    height: '70px',
+    padding: '10px 16px',
+    fontSize: '24px',
+    lineHeight: '1.33',
+    borderRadius: '35px',
+    marginLeft: '85%'
+  };
+
+  const plusBtnStyle = {
+    marginRight: 20,
+    paddingLeft: '50%'
+  };
+
+  const plusBtnStyle2 = {
+    marginRight: 20,
+    paddingLeft: '40%'
+  };
+
+let close = () => this.setState({ showModal: false});
+
+    return (
+      <DocumentTitle title={`Garage`}>
+
+      <div className="container">
+
+        <Grid>
+          <Row>
+            <Col xs={5}>
+              <h3>My Garage</h3>
+            </Col>
+            <MediaQuery query='(min-width: 450px)'>
+              <Col xs={6} style={plusBtnStyle}>
+                <FloatingActionButton secondary={true}
+                  onMouseDown={this.addCar.bind(this)}
+                  backgroundColor='#00ccff'>
+                  <ContentAdd />
+                </FloatingActionButton>
+              </Col>
+            </MediaQuery>
+
+            <MediaQuery query='(max-width: 450px)'>
+              <Col xs={6} style={plusBtnStyle2}>
+                <FloatingActionButton
+                  secondary={true}
+                  onMouseDown={this.addCar.bind(this)}
+                  backgroundColor='#00ccff'>
+                  <ContentAdd />
+                </FloatingActionButton>
+              </Col>
+            </MediaQuery>
+          </Row>
+        </Grid>
+        <hr />
+
+        <div className="container-fluid">
+
+        <Thumbnail style={tnailStyle}>
+
+        <div className="container-fluid">
+        <Col xs={12} sm={12} md={6} lg={6}>
+        <Image className="img-responsive" src="https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg" style={picStyle}/>
+        </Col>
+
+        <Col xs={12} sm={12} md={6} lg={6}>
+          <h3>Ferrari 458 Italia (2009)</h3>
+          <p style={textStyle} >Ferrari 458 Italia </p>
+          <p>Price: 60$/hr</p>
+        </Col>
+
+        <Col xs={12} sm={12} md={6} lg={6}>
+          <p>
+            <Button bsStyle="primary"><Glyphicon glyph="eye-open"/> View</Button>
+            <Button bsStyle="warning"><Glyphicon glyph="edit"/> Edit</Button>
+            <Button bsStyle="danger"><Glyphicon glyph="remove"/> Remove</Button>
+
+          </p>
+        </Col>
+        </div>
+
+        </Thumbnail>
+        </div>
+
+
+
+        <div className="container-fluid">
+        <Thumbnail style={tnailStyle}>
+
+        <div className="container-fluid">
+        <Col xs={12} sm={12} md={6} lg={6}>
+        <Image className="img-responsive" src="https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg" style={picStyle}/>
+        </Col>
+
+        <Col xs={12} sm={12} md={6} lg={6}>
+          <h3>Ferrari 458 Italia (2009)</h3>
+          <p style={textStyle}>Ferrari 458 Italia </p>
+          <p>Price: 60$/hr</p>
+        </Col>
+
+        <Col xs={12} sm={12} md={6} lg={6}>
+          <p>
+            <Button bsStyle="primary"><Glyphicon glyph="eye-open"/> View</Button>
+            <Button bsStyle="warning"><Glyphicon glyph="edit"/> Edit</Button>
+            <Button bsStyle="danger"><Glyphicon glyph="remove"/> Remove</Button>
+
+          </p>
+        </Col>
+        </div>
+
+        </Thumbnail>
+        </div>
+
+
+
+        <div className="container-fluid">
+        <Thumbnail style={tnailStyle}>
+
+        <div className="container-fluid">
+        <Col xs={12} sm={12} md={6} lg={6}>
+        <Image className="img-responsive" src="https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg" style={picStyle}/>
+        </Col>
+
+        <Col xs={12} sm={12} md={6} lg={6}>
+          <h3>Manual</h3>
+          <p style={textStyle} >Ferrari 458 Italia (2009)</p>
+          <p>Price: 60$/hr</p>
+        </Col>
+
+        <Col xs={12} sm={12} md={6} lg={6}>
+          <p>
+            <Button bsStyle="primary"><Glyphicon glyph="eye-open"/> View</Button>
+            <Button bsStyle="warning"><Glyphicon glyph="edit"/> Edit</Button>
+            <Button bsStyle="danger"><Glyphicon glyph="remove"/> Remove</Button>
+
+          </p>
+        </Col>
+        </div>
+
+        </Thumbnail>
+        </div>
+
+        <Modal  show={this.state.showModal}
+            onHide={close}  container={this}>
+          <Modal.Header closeButton>
+            <Modal.Title>Add new vehicle</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <form>
+               <Input type="text" label="Name" placeholder="Title/Name of vehicle" />
+              <Input type="textarea" label="Description" placeholder="" />
+               <Input type="text" label="Price" addonBefore="$"  />
+               <Input type="file" label="Photo"  />
+                <ButtonGroup>
+
+               <Button  bsStyle="primary" type="submit">Add</Button>
+               <Button onClick={close}>Cancel</Button>
+               </ButtonGroup>
+             </form>
+
+          </Modal.Body>
+
+        </Modal>
+
+        </div>
+
+      </DocumentTitle>
+    );
+  }
+}
