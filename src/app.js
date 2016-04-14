@@ -21,7 +21,6 @@ ReactDOM.render(
       <IndexRoute component={IndexPage} />
       <LoginRoute path='/login' component={LoginPage} />
       <Route path='/verify' component={VerifyEmailPage} />
-      <Route path='/register' component={RegisterPage} />
       <Route path='/forgot' component={ResetPasswordPage} />
       <Route path='/about' component={aboutPage} />
       <Route path='/carDetails' component={carDetails} />

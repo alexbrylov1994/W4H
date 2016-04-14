@@ -5,15 +5,7 @@ import {Tabs, Tab, Thumbnail, Button, Glyphicon, Image, Col, Input} from 'react-
 export default class rentalHistory extends React.Component {
 
   render() {
-
-  var buttonStyle =
-  {
-    width: '100px',
-    height: '40px',
-    background:'#bbb',
-    color: '#999'
-  };
-
+    
   var picStyle =
   {
     width: '300px',

@@ -43,9 +43,12 @@ export default class LoginPage extends React.Component {
       borderRadius:'20px'
     };
 
+
     var inkBarStyle ={
       background:'cyan'
     };
+
+
 
     return (
       <DocumentTitle title={this.state.inLogin}>
@@ -56,7 +59,7 @@ export default class LoginPage extends React.Component {
             <div className="col-xs-12">
               <h3>{this.state.inLogin}</h3>
             </div>
-          </div>
+            </div>
 
             <Tabs value={this.state.selectedTab}
               onChange={this.changeText.bind(this)}
@@ -67,7 +70,48 @@ export default class LoginPage extends React.Component {
                 </Tab>
 
                 <Tab label="Register" value={2} >
-                  <p bsStyle="padding:40px;"></p><br/><RegistrationForm/>
+                  <p bsStyle="padding:40px;"></p><br/>
+                    <RegistrationForm>
+
+                      <div className="form-horizontal">
+                          <div  className="form-group">
+                            <label className="col-xs-12 col-sm-4 control-label" htmlFor="licence">Driver's Licence</label>
+                            <div className="col-xs-12 col-sm-4">
+                              <input className="form-control" id="licence" type="text" name="licence" />
+                            </div>
+                          </div>
+
+                          <div  className="form-group">
+                              <label className="col-xs-12 col-sm-4 control-label" htmlFor="givenName">First name</label>
+                                <div className="col-xs-12 col-sm-4">
+                                <input className="form-control" id="givenName" type="text" name="givenName" />
+                              </div>
+
+                          </div>
+
+                          <div  className="form-group">
+                            <label className="col-xs-12 col-sm-4 control-label" htmlFor="surname">Last name</label>
+                              <div className="col-xs-12 col-sm-4">
+                              <input className="form-control" id="email" type="text" name="surname" />
+                            </div>
+                          </div>
+
+                          <div  className="form-group">
+                              <label className="col-xs-12 col-sm-4 control-label" htmlFor="email">Email</label>
+                              <div className="col-xs-12 col-sm-4">
+                                <input className="form-control" id="email" type="text" name="email" />
+                              </div>
+                          </div>
+                          <br/>
+
+
+                        <div className="col-sm-offset-4 col-sm-4">
+                              <button type="submit" className="btn btn-primary">Register</button>
+                          </div>
+                          </div>
+                      </RegistrationForm>
+
+
                 </Tab>
 
               </Tabs>

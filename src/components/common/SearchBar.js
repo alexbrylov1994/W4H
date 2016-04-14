@@ -28,17 +28,14 @@ import Dropdown from 'react-dropdown'
   showModal: true
 };
 
-var curosolStyle = {
-  borderRadius: '100px',
+var carouselStyle = {
   width: '100%',
-  height: '50%'
+  maxHeight: '400px'
 };
 
 var picStyle =
 {
-  width: '80%',
-  height: '500px',
-  align: 'center',
+  maxHeight: '400px',
   margin: '0 auto'
 };
 
@@ -48,10 +45,31 @@ var blackText = {
   backgroundColor: 'rgba(0,0,0,0.35)'
 };
 
-var ModalBtnStyle = {
-    paddingLeft: '10%',
-    width: '100%'
+var divStyle = {
+  paddingLeft: '0px',
+  paddingBottom: '30px',
+  paddingTop: '15px'
 };
+var searBharStyle = {
+  paddingBottom: '15px',
+};
+
+var rowStyle = {
+  paddingLeft: '17px'
+};
+
+var ButtonMargin = {
+  margin: '0 5px'
+};
+
+var dropDownMenuStyle = {
+  width: '100%',
+  paddingLeft: '17px',
+
+}
+
+let close = () => this.setState({ showModal: false});
+
 
 export default class SearchBar extends React.Component {
 
@@ -147,46 +165,6 @@ export default class SearchBar extends React.Component {
   }
 
   render() {
-    var divStyle = {
-      paddingLeft: '0px',
-      paddingBottom: '30px',
-      paddingTop: '15px'
-    };
-    var searBharStyle = {
-      paddingBottom: '15px',
-    };
-    var searchInputPhoneStyle = {
-      borderStyle: 'non',
-      paddingLeft: '0%',
-      backgroundColor: '',
-      width: '100%'
-    };
-    var searchInputPhoneStyleModal = {
-      borderStyle: 'non',
-      paddingLeft: '7%',
-      paddingRight: '0%',
-      paddingBottom: '10px',
-      // backgroundColor: '#90EE90',
-      width: '100%'
-    };
-    var rowStyle = {
-      paddingLeft: '17px'
-    };
-
-    var DropdownMenuStyle = {
-        paddingLeft: '0%',
-        width: '100%'
-    };
-    var ButtonMargin = {
-      margin: '0 5px'
-    };
-    let close = () => this.setState({ showModal: false});
-
-    var dropDownMenuStyle = {
-      width: '100%',
-      paddingLeft: '17px',
-
-    }
 
 
     const innerGlyphicon = <Button onClick={this.toggleSearchFilters.bind(this)}><Glyphicon glyph={this.state.glyph} /></Button>
@@ -196,9 +174,11 @@ export default class SearchBar extends React.Component {
       <Grid >
         <Row>
           <div className="container-fluid">
-          <Carousel style={curosolStyle}>
+          <Carousel style={carouselStyle}>
             <CarouselItem>
+              <div>
               <img className="img-responsive" style={picStyle} alt="car" src="https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg"/>
+              </div>
               <div style={blackText} className="carousel-caption">
                 <h3>Rent Car</h3>
                 <p>The ultimate place for renting cars and have a comfortable, affordable ride</p>
