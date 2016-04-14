@@ -162,10 +162,10 @@ export default class SearchBar extends React.Component {
     };
     let close = () => this.setState({ showModal: false});
 
-    let dropDownMenuStyle = {
-      minWidth: '100%',
+    var dropDownMenuStyle = {
       width: '100%',
-      paddingLeft: '17px'
+      paddingLeft: '17px',
+
     }
 
 
@@ -279,36 +279,32 @@ export default class SearchBar extends React.Component {
         }
         <MediaQuery query='(max-width: 700px)'>
           <Collapse in={this.state.advancedFiltersOpen}>
-            <Grid>
-              <Row style={dropDownMenuStyle}>
-                <DropdownButton
+            <Grid className="fullWidthDropdown">
+              <Row style={dropDownMenuStyle} >
+
+                <DropdownButton style={dropDownMenuStyle}
                   bsStyle="primary"
                   title={this.state.category}
                   id="bg-nested-dropdwon">
 
-                    <MenuItem eventKey={1.1} href="#" onSelect={this.onSelect.bind(this)}>Cars</MenuItem>
+                    <MenuItem  eventKey={1.1} href="#" onSelect={this.onSelect.bind(this)}>Cars</MenuItem>
                     <MenuItem eventKey={1.2} href="#" onSelect={this.onSelect.bind(this)}>Trucks</MenuItem>
-                    <MenuItem eventKey={1.3} href="#" onSelect={this.onSelect.bind(this)}>SUVS</MenuItem>
-                    <MenuItem eventKey={1.4} href="#" onSelect={this.onSelect.bind(this)}>Utility</MenuItem>
-                    <MenuItem eventKey={1.5} href="#" onSelect={this.onSelect.bind(this)}>All</MenuItem>
+                    <MenuItem  eventKey={1.3} href="#" onSelect={this.onSelect.bind(this)}>SUVS</MenuItem>
+                    <MenuItem  eventKey={1.4} href="#" onSelect={this.onSelect.bind(this)}>Utility</MenuItem>
+                    <MenuItem  eventKey={1.5} href="#" onSelect={this.onSelect.bind(this)}>All</MenuItem>
                 </DropdownButton>
-                <div className="input-group">
-                  <span className="input-group-btn">
-                  </span>
-                </div>
+
               </Row>
               <br />
 
               <Row style={dropDownMenuStyle}>
-                <div className="input-group">
+
                   <DropdownButton  block bsStyle="primary" style={dropDownMenuStyle} title="Make" id="bg-nested-dropdwon">
                     <MenuItem style={dropDownMenuStyle} eventKey={2.1} href="#" onSelect={this.onSelect.bind(this)}>Acura</MenuItem>
                     <MenuItem style={dropDownMenuStyle} eventKey={2.2} href="#" onSelect={this.onSelect.bind(this)}>Mclaren</MenuItem>
                     <MenuItem style={dropDownMenuStyle} eventKey={2.3} href="#" onSelect={this.onSelect.bind(this)}>Lambo</MenuItem>
                   </DropdownButton>
-                  <span className="input-group-btn">
-                  </span>
-                </div>
+
               </Row>
               <br />
 
