@@ -25,8 +25,21 @@ export default class aboutPage extends React.Component {
 
     var jubStyle = {
       paddingLeft: '1.5%',
-      paddingRight: '1.5%'
+      paddingRight: '1.5%',
+
+      backgroundImage:'url(http://i.imgur.com/f9qkYWl.jpg)',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center',
+      backgroundSize: '100% auto'
+
     };
+
+    var introTextStyle = {
+      padding: '5px',
+      backgroundColor:'rgba(0, 0, 0, 0.47)',
+      borderRadius:'11px',
+      color:'white',
+    }
 
     var curosolStyle = {
       borderRadius: '100px'
@@ -41,40 +54,15 @@ export default class aboutPage extends React.Component {
     return (
       <div className="container">
 
-      <div style={jubStyle}>
-        <Jumbotron >
-          <h3 className="text-center">Welcome W4Hire users!</h3>
-          <p className="text-center"> Prepare to get amazed at how easy everything is!</p>
-        </Jumbotron>
-      </div>
+        <div>
 
+          <Jumbotron  style={jubStyle} >
+            <div style={introTextStyle}>
+              <h3 className="text-center">Welcome W4Hire users!</h3>
+              <p className="text-center"> Prepare to get amazed at how easy everything is!</p>
+            </div>
+          </Jumbotron>
 
-        <div className="container-fluid">
-        <Carousel style={curosolStyle}>
-          <CarouselItem>
-            <img className="img-responsive" style={picStyle} alt="car" src="https://www.honda.ca/Content/hondanews.ca/82714903-f033-4473-8d7c-c20e027c9a66/PressRelease/2014_Honda_Civic_Ext_20.jpg"/>
-            <div style={blackText} className="carousel-caption">
-              <h3>Rent Car</h3>
-              <p>The ultimate place for renting cars and have a comfortable, affordable ride</p>
-            </div>
-
-          </CarouselItem>
-          <CarouselItem>
-            <img className="img-responsive" style={picStyle} alt="money" src="http://salesman.red/wp-content/uploads/2016/01/money-background-imagesearn-money-online-7a4zz8nx.jpg"/>
-            <div style={blackText}  className="carousel-caption">
-              <h3>Make Money</h3>
-              <p>This application allows you to make money with a minimum ammount of effort</p>
-            </div>
-          </CarouselItem>
-          <CarouselItem>
-            <img className="img-responsive" style={picStyle} alt="safety" src="http://www.adamsindustriesinc.com/wp-content/uploads/2016/02/safety-first2.jpg"/>
-            <div style={blackText}  className="carousel-caption">
-              <h3>Safety</h3>
-              <p>We got you covered. WE know, accidents happen, and we are there to make
-              sure you are safe!</p>
-            </div>
-          </CarouselItem>
-        </Carousel>
 
         <div style={padStyle}> </div>
 

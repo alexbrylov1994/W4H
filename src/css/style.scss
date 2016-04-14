@@ -8,3 +8,16 @@ html,body {
 	background-attachment: fixed;
   height:100%;
 }
+
+.fullWidthDropdown .dropdown {
+  display: block !important;
+    width: 100% !important;
+}
+
+.fullWidthDropdown .dropdown-menu {
+    width: 100% !important;
+}
+
+.fullWidthDropdown li {
+    text-align: center !important;
+}

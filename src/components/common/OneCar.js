@@ -11,7 +11,7 @@ var starStyle = {
   height: '5%'
 };
 
-export default class Car extends React.Component {
+export default class OneCar extends React.Component {
 
   constructor(props)
   {

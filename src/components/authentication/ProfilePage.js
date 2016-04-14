@@ -1,82 +1,34 @@
 import React from 'react';
 import DocumentTitle from 'react-document-title';
 import { UserProfileForm } from 'react-stormpath';
-import {Tabs, Tab, Thumbnail, Button, Glyphicon, Image, Col, Input} from 'react-bootstrap';
+import {Thumbnail, Button, Glyphicon, Image, Col, Input} from 'react-bootstrap';
+//Tabs
+import Tabs from 'material-ui/lib/tabs/tabs';
+import Tab from 'material-ui/lib/tabs/tab';
+import Slider from 'material-ui/lib/slider';
+
 import myGarage from '../initialPages/myGarage';
+import InboxItem from './InboxItem';
+import ReviewItem from './ReviewItem'
 export default class ProfilePage extends React.Component {
+
+  constructor(props)
+  {
+    super(props);
+    this.state =  {
+      selectedTab: 1
+    };
+  }
 
   render() {
 
-    function hello()
-    {
-
-      document.getElementById("t2").remove();
-
-    }
-    var buttonStyle =
-    {
-      width: '100px',
-      height: '40px',
-      background:'#bbb',
-      color: '#999'
+    const Tabstyle = {
+      backgroundColor: '#3F5E68',
+      color: "black"
     };
-
-    var picStyle =
-    {
-      width: '300px',
-      height: '300px',
-      align: 'left'
+    var inkBarStyle ={
+      background:'cyan'
     };
-
-    var textStyle =
-    {
-      align:'right'
-    };
-
-    var tnailStyle=
-    {
-      width: '85%',
-      marginLeft: '7%'
-    };
-
-    var padStyle=
-    {
-      paddingTop:'15px',
-      marginRight: '10%'
-    };
-
-    var btn =
-      {
-        width: '50px',
-        height: '50px',
-        textAlign: 'center',
-        padding: '10px 16px',
-        fontSize: '18px',
-        lineHeight: '1.33',
-        borderRadius: '35px',
-      };
-
-    var btnlg=
-    {
-      width: '70px',
-      height: '70px',
-      padding: '10px 16px',
-      fontSize: '24px',
-      lineHeight: '1.33',
-      borderRadius: '35px',
-      marginLeft: '85%',
-    };
-
-    var centerStyle={
-      textAlign:'center'
-    };
-    var userUpdateFormStyle={
-      display:'table',
-      width:'65%',
-      minWidth:'190px',
-      margin:'0 auto'
-    };
-
 
     return (
       <DocumentTitle title={`My Profile`}>
@@ -90,81 +42,82 @@ export default class ProfilePage extends React.Component {
           <div className="row">
             <div className="col-xs-12">
 
-            <h4>Name: User </h4>
-            <h4>Email: email </h4>
-            <h4 bsStyle="bottom-padding:40px;">License: ### </h4>
+              <h4>Name: User </h4>
+              <h4>Email: email </h4>
+              <h4 bsStyle="bottom-padding:40px;">License: ### </h4>
 
-            <div>
-          <Tabs defaultActiveKey={1}>
-              <Tab eventKey={1} title="Inbox">
-              <div style={padStyle}></div>
+                <Tabs
+                  tabItemContainerStyle={Tabstyle}
+                  inkBarStyle={inkBarStyle}>
+                    <Tab label="Inbox">
+                      <br/>
+                        <InboxItem />
+                        <InboxItem />
+                        <InboxItem />
+                        <InboxItem />
 
-              <Thumbnail id="t1" style={tnailStyle}>
-                <h3>From : User2</h3>
-                <p> <strong>Subject:</strong> Notification : request for a 1979 Mustang - Accepted</p>
-                <p> <strong>Time Slot:</strong> 10 Am - 5 PM March 13 2016;  11 Am - 6 PM May 12 </p>
-                <p> <strong>Message:</strong> Lorem ipsum dolor sit amet, justo metus vitae cursus fringilla, adipiscing sed, faucibus justo sollicitudin, lobortis pede distinctio eget nunc euismod, tincidunt maecenas nibh cras ligula sed. Accumsan ipsum fusce, ut orci, fermentum velit esse tempus, proin mauris aliquam donec eros, lectus ut. Dis at in, massa ac tincidunt, pulvinar mauris ultricies. At sed orci justo aliquet, dui quam quis vitae tempor leo, eleifend qui fermentum duis etiam vehicula. Elit id, nullam placerat amet justo, morbi ipsum orci massa arcu, eget at vel libero. Sagittis nec interdum, eros pede, non mauris tristique dui id sed interdum. Augue dapibus at fusce, ac ut in per, unde sed. Varius tempor </p>
 
-                <p>
-                  <Button bsStyle="primary" >Accept</Button>&nbsp;
-                  <Button bsStyle="danger">Denie</Button>
-                </p>
-              </Thumbnail>
+                    </Tab>
 
-              <Thumbnail id="t1" style={tnailStyle}>
-                <h3>From : User2</h3>
-                <p> <strong>Subject:</strong> Notification : request for a 1979 Mustang - Accepted</p>
-                <p> <strong>Time Slot:</strong> 10 Am - 5 PM March 13 2016;  11 Am - 6 PM May 12 </p>
-                <p> <strong>Message:</strong> Lorem ipsum dolor sit amet, justo metus vitae cursus fringilla, adipiscing sed, faucibus justo sollicitudin, lobortis pede distinctio eget nunc euismod, tincidunt maecenas nibh cras ligula sed. Accumsan ipsum fusce, ut orci, fermentum velit esse tempus, proin mauris aliquam donec eros, lectus ut. Dis at in, massa ac tincidunt, pulvinar mauris ultricies. At sed orci justo aliquet, dui quam quis vitae tempor leo, eleifend qui fermentum duis etiam vehicula. Elit id, nullam placerat amet justo, morbi ipsum orci massa arcu, eget at vel libero. Sagittis nec interdum, eros pede, non mauris tristique dui id sed interdum. Augue dapibus at fusce, ac ut in per, unde sed. Varius tempor </p>
+                    <Tab label="Reviews"  >
+                      <br/>
+                      <ReviewItem />
+                      <ReviewItem />
+                      <ReviewItem />
+                      <ReviewItem />
+                    </Tab>
 
-                <p>
-                  <Button bsStyle="primary" >Accept</Button>&nbsp;
-                  <Button bsStyle="danger">Denie</Button>
-                </p>
-              </Thumbnail>
+                {/*    <Tab label="Garage" value={1}>
+                      <p bsStyle="padding:40px;"></p><br/><LoginForm/>
+                    </Tab> */}
 
-              <Thumbnail id="t1" style={tnailStyle}>
-                <h3>From : User2</h3>
-                <p> <strong>Subject:</strong> Notification : request for a 1979 Mustang - Accepted</p>
-                <p> <strong>Time Slot:</strong> 10 Am - 5 PM March 13 2016;  11 Am - 6 PM May 12 </p>
-                <p> <strong>Message:</strong> Lorem ipsum dolor sit amet, justo metus vitae cursus fringilla, adipiscing sed, faucibus justo sollicitudin, lobortis pede distinctio eget nunc euismod, tincidunt maecenas nibh cras ligula sed. Accumsan ipsum fusce, ut orci, fermentum velit esse tempus, proin mauris aliquam donec eros, lectus ut. Dis at in, massa ac tincidunt, pulvinar mauris ultricies. At sed orci justo aliquet, dui quam quis vitae tempor leo, eleifend qui fermentum duis etiam vehicula. Elit id, nullam placerat amet justo, morbi ipsum orci massa arcu, eget at vel libero. Sagittis nec interdum, eros pede, non mauris tristique dui id sed interdum. Augue dapibus at fusce, ac ut in per, unde sed. Varius tempor </p>
+                    <Tab label="Update"  >
+                    <br/>
+                      <UserProfileForm>
+                        <div className="form-horizontal">
+                            <div  className="form-group">
+                              <label className="col-xs-12 col-sm-4 control-label" htmlFor="licence">Driver's Licence</label>
+                              <div className="col-xs-12 col-sm-4">
+                                <input className="form-control" id="licence" type="text" name="licence" />
+                              </div>
+                            </div>
 
-                <p>
-                  <Button bsStyle="primary" >Accept</Button>&nbsp;
-                  <Button bsStyle="danger">Denie</Button>
-                </p>
-              </Thumbnail>
+                            <div  className="form-group">
+                                <label className="col-xs-12 col-sm-4 control-label" htmlFor="givenName">First name</label>
+                                  <div className="col-xs-12 col-sm-4">
+                                  <input className="form-control" id="givenName" type="text" name="givenName" />
+                                </div>
 
-              </Tab>
+                            </div>
 
-              <Tab eventKey={2} title="Reviews">
-              <div style={padStyle}></div>
+                            <div  className="form-group">
+                              <label className="col-xs-12 col-sm-4 control-label" htmlFor="surname">Last name</label>
+                                <div className="col-xs-12 col-sm-4">
+                                <input className="form-control" id="email" type="text" name="surname" />
+                              </div>
+                            </div>
 
-            <Thumbnail style={tnailStyle}>
+                            <div  className="form-group">
+                                <label className="col-xs-12 col-sm-4 control-label" htmlFor="email">Email</label>
+                                <div className="col-xs-12 col-sm-4">
+                                  <input className="form-control" id="email" type="text" name="email" />
+                                </div>
+                            </div>
+                            <br/>
 
-            <p>Lorem ipsum dolor sit amet, justo metus vitae cursus fringilla, adipiscing sed, faucibus justo sollicitudin, lobortis pede distinctio eget nunc euismod, tincidunt maecenas nibh cras ligula sed. Accumsan ipsum fusce, ut orci, fermentum velit esse tempus, proin mauris aliquam donec eros, lectus ut. Dis at in, massa ac tincidunt, pulvinar mauris ultricies. At sed orci justo aliquet, dui quam quis vitae tempor leo, eleifend qui fermentum duis etiam vehicula. Elit id, nullam placerat amet justo, morbi ipsum orci massa arcu, eget at vel libero. Sagittis nec interdum, eros pede, non mauris tristique dui id sed interdum. Augue dapibus at fusce, ac ut in per, unde sed. Varius tempor</p>
-            <h5>From : User2</h5>
 
-            </Thumbnail>
+                          <div className="col-sm-offset-4 col-sm-4">
+                                <button type="submit" className="btn btn-primary">Update</button>
+                            </div>
+                          </div>
+                        </UserProfileForm>
+                        <br/>
+                    </Tab>
 
-            <Thumbnail style={tnailStyle}>
+                  </Tabs>
 
-              <p>Lorem ipsum dolor sit amet, justo metus vitae cursus fringilla, adipiscing sed, faucibus justo sollicitudin, lobortis pede distinctio eget nunc euismod, tincidunt maecenas nibh cras ligula sed. Accumsan ipsum fusce, ut orci, fermentum velit esse tempus, proin mauris aliquam donec eros, lectus ut. Dis at in, massa ac tincidunt, pulvinar mauris ultricies. At sed orci justo aliquet, dui quam quis vitae tempor leo, eleifend qui fermentum duis etiam vehicula. Elit id, nullam placerat amet justo, morbi ipsum orci massa arcu, eget at vel libero. Sagittis nec interdum, eros pede, non mauris tristique dui id sed interdum. Augue dapibus at fusce, ac ut in per, unde sed. Varius tempor</p>
-              <h4>From : User2</h4>
 
-            </Thumbnail>
 
-            <Thumbnail style={tnailStyle}>
-            <p>Lorem ipsum dolor sit amet, justo metus vitae cursus fringilla, adipiscing sed, faucibus justo sollicitudin, lobortis pede distinctio eget nunc euismod, tincidunt maecenas nibh cras ligula sed. Accumsan ipsum fusce, ut orci, fermentum velit esse tempus, proin mauris aliquam donec eros, lectus ut. Dis at in, massa ac tincidunt, pulvinar mauris ultricies. At sed orci justo aliquet, dui quam quis vitae tempor leo, eleifend qui fermentum duis etiam vehicula. Elit id, nullam placerat amet justo, morbi ipsum orci massa arcu, eget at vel libero. Sagittis nec interdum, eros pede, non mauris tristique dui id sed interdum. Augue dapibus at fusce, ac ut in per, unde sed. Varius tempor</p>
-            <h5>From : User2</h5>
-            </Thumbnail>
-
-            <Thumbnail style={tnailStyle}>
-              <p>Lorem ipsum dolor sit amet, justo metus vitae cursus fringilla, adipiscing sed, faucibus justo sollicitudin, lobortis pede distinctio eget nunc euismod, tincidunt maecenas nibh cras ligula sed. Accumsan ipsum fusce, ut orci, fermentum velit esse tempus, proin mauris aliquam donec eros, lectus ut. Dis at in, massa ac tincidunt, pulvinar mauris ultricies. At sed orci justo aliquet, dui quam quis vitae tempor leo, eleifend qui fermentum duis etiam vehicula. Elit id, nullam placerat amet justo, morbi ipsum orci massa arcu, eget at vel libero. Sagittis nec interdum, eros pede, non mauris tristique dui id sed interdum. Augue dapibus at fusce, ac ut in per, unde sed. Varius tempor</p>
-              <h5>From : User2</h5>
-            </Thumbnail>
-
-              </Tab>
 
 
                 {/*
@@ -265,51 +218,9 @@ export default class ProfilePage extends React.Component {
               </Thumbnail>
               </div>
             </Tab>  */}
-
-
-
-
-              <Tab eventKey={4} title="Update Profile"><div style={padStyle}></div>
-
-
-
-              <UserProfileForm>
-                <div style={userUpdateFormStyle}>
-                <p>
-                  <label htmlFor="licence">Driver's Licence</label><br />
-                  <input className="form-control" id="licence" type="text" name="licence" />
-                </p>
-                  <p>
-                    <label htmlFor="givenName">First name</label><br />
-                    <input className="form-control" id="givenName" type="text" name="givenName" />
-                  </p>
-                  <p>
-                    <label htmlFor="surname">Last name</label><br />
-                    <input className="form-control" id="email" type="text" name="surname" />
-                  </p>
-                  <p>
-                    <label htmlFor="email">Email</label><br />
-                    <input className="form-control" id="email" type="text" name="email" />
-                  </p>
-
-                  <p spIf="form.successful">
-                    Profile updated.
-                  </p>
-                  <br/>
-                  <p>
-                    <input  className=" btn btn-primary form-control" type="submit" value="Update" />
-                  </p>
-                  </div>
-                </UserProfileForm>
-                <br/>
-
-            </Tab>
-            </Tabs>
-            </div>
-
-            </div>
-          </div>
-        </div>
+            </div> {/*End Col*/}
+          </div> {/*End row*/}
+        </div>{/*End container*/}
       </DocumentTitle>
     );
   }

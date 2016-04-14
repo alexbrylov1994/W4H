@@ -235,10 +235,6 @@ export default class SelectedCar extends React.Component {
             <hr/>
             <Row>
               <Col xs={12}>
-                {/* Material UI button
-                <RaisedButton label="Send Request" primary={true} style={ActionBtnsStyle} />
-                <RaisedButton label="Bookmark" primary={true} style={ActionBtnsStyle} />
-                */}
                 <Button  bsStyle="success" > Send Request
                 </Button>&nbsp;
 
